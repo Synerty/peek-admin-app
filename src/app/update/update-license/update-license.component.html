@@ -5,12 +5,12 @@
         <div class="panel-body">
 
             <div class="alert alert-danger" role="alert"
-                 ng-show="data.supportExceeded && !data.demoExceeded">
+                 [hidden]="!(data.supportExceeded && !data.demoExceeded)">
                 Peek server support period has ended, contact Synerty to renew.
             </div>
 
             <div class="alert alert-danger" role="alert"
-                 ng-show="data.demoExceeded">
+                 [hidden]="!data.demoExceeded">
                 Peek server demo license has expired, please contact Synerty to
                 purchase.
             </div>
@@ -25,18 +25,18 @@
                             ID</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control"
-                                   ng-model="data.sid"
+                                   [(ngModel)]="data.sid"
                                    id="ServerID" readonly>
                         </div>
                     </div>
                     <div class="form-group col-md-6"
-                         ng-class="{'has-error':data.supportExceeded,
-                                'has-success':!data.supportExceeded }">
+                         [class.has-error]="data.supportExceeded"
+                         [class.has-success]="!data.supportExceeded">
                         <label for="ExpireDate"
                                class="col-md-4 control-label">Expiry Date</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" id="ExpireDate"
-                                   ng-model="data.upd" readonly>
+                                   [(ngModel)]="data.upd" readonly>
                         </div>
                     </div>
                 </div>
@@ -46,18 +46,18 @@
                                class="col-md-4 control-label">License Type</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" id="LicenseType"
-                                   ng-model="data.lin"
+                                   [(ngModel)]="data.lin"
                                    readonly>
                         </div>
                     </div>
                     <div class="form-group col-md-6"
-                         ng-class="{'has-error':data.supportExceeded,
-                                'has-success':!data.supportExceeded }">
+                         [class.has-error]="data.supportExceeded"
+                         [class.has-success]="!data.supportExceeded">
                         <label for="SupportType"
                                class="col-md-4 control-label">Support Type</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" id="SupportType"
-                                   ng-model="data.sun"
+                                   [(ngModel)]="data.sun"
                                    readonly>
                         </div>
                     </div>
@@ -70,14 +70,14 @@
                         <label for="LicenseKey"
                                class="col-md-2 control-label">Update License</label>
                         <div class="col-md-10">
-                    <textarea ng-model="data.newkey" type="text" class="form-control"
+                    <textarea [(ngModel)]="data.newkey" type="text" class="form-control"
                               id="LicenseKey" rows="5"></textarea>
                         </div>
                     </div>
                     <div class="form-group col-md-12">
                         <div class="col-md-offset-2 col-md-10">
-                            <button ng-click="updateLicense()" class="btn btn-default"
-                                    ng-disabled="!data.newkey">Update
+                            <button (click)="updateLicense()" class="btn btn-default"
+                                    [disabled]="!data.newkey">Update
                             </button>
                             To request a new license, email support@synerty.com, include
                             the

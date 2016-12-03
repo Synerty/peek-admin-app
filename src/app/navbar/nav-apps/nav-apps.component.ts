@@ -12,7 +12,7 @@ interface PappMenuItem {
 }
 
 @Component({
-    selector: 'app-nav-apps',
+    selector: '[app-nav-apps]',
     templateUrl: './nav-apps.component.html',
     styleUrls: ['./nav-apps.component.css']
 })

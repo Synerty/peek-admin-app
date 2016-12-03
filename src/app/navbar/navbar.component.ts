@@ -5,6 +5,10 @@ import {
     TupleLoader,
     Tuple
 } from "@synerty/vortexjs";
+import {
+    dashboardRoute, settingRoute, updateRoute,
+    environmentRoute
+} from "../app-routing.module";
 
 
 class UserTuple extends Tuple {
@@ -29,6 +33,11 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
         papp: 'peek_server',
         key: "nav.adm.user.data"
     };
+
+    dashboardPath: string = dashboardRoute.path;
+    settingPath: string = settingRoute.path;
+    environmentPath: string = environmentRoute.path;
+    updatePath: string = updateRoute.path;
 
     user: UserTuple = new UserTuple();
 

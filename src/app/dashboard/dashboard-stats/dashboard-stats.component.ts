@@ -22,18 +22,20 @@ export class DashboardStatsComponent extends ComponentLifecycleEventEmitter impl
     };
 
     stats: Stat[] = [];
-    statsLoader: TupleLoader;
+    loader: TupleLoader;
 
     constructor(vortexService: VortexService) {
         super();
 
-        this.statsLoader = vortexService.createTupleLoader(this,
-            () => {
-                return this.statsFilt;
-            });
+        this.loader = vortexService.createTupleLoader(this, this.statsFilt);
 
-        this.statsLoader.observable.subscribe(
-            tuples => this.stats = <Stat[]>tuples);
+        this.loader.observable.subscribe(
+            tuples => {
+                this.stats = <Stat[]>tuples;
+                this.stats.sort((a, b) => {
+                    return (<Stat>a).desc.localeCompare((<Stat>b).desc);
+                });
+            });
 
     }
 

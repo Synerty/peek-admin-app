@@ -1,26 +1,39 @@
 import {NgModule} from "@angular/core";
-import {Routes, RouterModule} from "@angular/router";
-import {UpdateModule} from "./update/update.module";
-import {SettingModule} from "./setting/setting.module";
-import {DashboardModule} from "./dashboard/dashboard.module";
-import {EnvironmentModule} from "./environment/environment.module";
+import {Routes, RouterModule, Route} from "@angular/router";
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {UpdateComponent} from "./update/update.component";
+import {EnvironmentComponent} from "./environment/environment.component";
+import {SettingComponent} from "./setting/setting.component";
+
+export const dashboardRoute: Route = {
+    path: '',
+    component: DashboardComponent
+};
+
+export const settingRoute: Route = {
+    path: 'setting',
+    component: SettingComponent
+};
+
+export const environmentRoute: Route = {
+    path: 'environment',
+    // component: EnvironmentComponent
+};
+
+export const updateRoute: Route = {
+    path: 'update',
+    // component: UpdateComponent
+};
 
 const routes: Routes = [
+    dashboardRoute,
+    settingRoute,
+    // environmentRoute,
+    // updateRoute,
     {
-        path: '',
-        children: [DashboardModule]
-    },
-    {
-        path: '/update',
-        children: [UpdateModule]
-    },
-    {
-        path: '/setting',
-        children: [SettingModule]
-    },
-    {
-        path: '/environment',
-        children: [EnvironmentModule]
+        path: '**',
+        component: DashboardComponent
+
     }
 ];
 

@@ -12,22 +12,22 @@
         </thead>
         <tbody>
         <tr *ngFor="let item of items">
-            <td><input type="text" ng-model="item.name"
+            <td><input type="text" [(ngModel)]="item.name"
                        class="form-control"/></td>
-            <td><input type="text" ng-model="item.ip"
+            <td><input type="text" [(ngModel)]="item.ip"
                        class="form-control"/></td>
-            <td><input type="text" ng-model="item.description"
+            <td><input type="text" [(ngModel)]="item.description"
                        class="form-control"/></td>
-            <td><select  ng-model="item.serverId"
+            <td><select  [(ngModel)]="item.serverId"
                        class="form-control"/></td>
             <!--
             <td>
-                <button ng-click="item.enabled = !item.enabled"
+                <button (click)="item.enabled = !item.enabled"
                         type="button"
                         class="form-control btn btn-default"
-                        ng-class="{active:item.enabled}">
-                    <span ng-show="item.enabled">Enabled</span>
-                    <span ng-hide="item.enabled">Disabled</span>
+                        [class.active]="item.enabled">
+                    <span [hidden]="!item.enabled">Enabled</span>
+                    <span [hidden]="!item.enabled">Disabled</span>
                 </button>
             </td>
             -->
@@ -37,10 +37,10 @@
     </table>
     <div class="btn-toolbar">
         <div class="btn-group">
-            <div class="btn btn-default" ng-click='loader.save()'>
+            <div class="btn btn-default" (click)='loader.save()'>
                 Save
             </div>
-            <div class="btn btn-default" ng-click='loader.reset()'>
+            <div class="btn btn-default" (click)='loader.reset()'>
                 Reset
             </div>
 

@@ -13,7 +13,7 @@
                 <tr *ngFor="let item of items">
                     <td>{{item.key}}</td>
                     <td>
-                        <input ng-model="item.char_value"
+                        <input [(ngModel)]="item.char_value"
                                class="form-control input-sm"/>
                     </td>
                 </tr>
