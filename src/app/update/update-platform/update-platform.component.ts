@@ -65,9 +65,9 @@ export class UpdatePlatformComponent extends ComponentLifecycleEventEmitter impl
             return;
         }
 
-        let data = JSON.parse(responseJsonStr);
-
         if (status == 200) {
+            let data = JSON.parse(responseJsonStr);
+
             this.progressPercentage = '';
             if (data.error) {
                 this.balloonMsg.showError("Software Update Failed\n" + data.error);
@@ -89,6 +89,11 @@ export class UpdatePlatformComponent extends ComponentLifecycleEventEmitter impl
 
     fileOverBase(e: any): void {
         this.hasBaseDropZoneOver = e;
+        // <!--[(ngModel)]="files"-->
+        // <!--ngf-multiple="false"-->
+        // <!--ngf-allow-dir="false"-->
+        // <!--ngf-drop="upload($files, $event, $rejectedFiles)"-->
+        // <!--accept="'*.tar.bz2'"-->
     }
 
 

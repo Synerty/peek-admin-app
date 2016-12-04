@@ -7,13 +7,12 @@
         <p>Update a Peek App software version</p>
 
 
-            <div [hidden]="pageData.supportExceeded"
-             [(ngModel)]="files" class="panel panel-warning"
-             ngf-drag-over-class="'panel-success'"
-             ngf-multiple="false"
-             ngf-allow-dir="false"
-             ngf-drop="upload($files, $event, $rejectedFiles)"
-             accept="'*.tar.bz2'">
+        <div class="panel panel-warning my-drop-zone"
+             ng2FileDrop
+             [hidden]="!uploadEnabled()"
+             [class.panel-success]="hasBaseDropZoneOver"
+             (fileOver)="fileOverBase($event)"
+             [uploader]="uploader">
 
             <div class="panel-heading">
                 <h3>
@@ -41,7 +40,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let ver of pappVersions">
+            <tr *ngFor="let ver of items">
                 <td>{{ver.title}}</td>
                 <td>{{ver.name}}</td>
                 <td>{{ver.creator}}</td>

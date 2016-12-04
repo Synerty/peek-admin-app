@@ -1,10 +1,30 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Input} from "@angular/core";
 import {
     VortexService,
     ComponentLifecycleEventEmitter,
-    TupleLoader
+    TupleLoader,
+    Tuple,
+    Payload
 } from "@synerty/vortexjs";
 import {Ng2BalloonMsgService} from "@synerty/ng2-balloon-msg";
+import {FileUploader} from "ng2-file-upload";
+
+class PeekAppInfo extends Tuple {
+    constructor() {
+        super('peek_server.papp.info')
+    }
+
+    id: number;
+    title: string;
+    name: string;
+    version: string;
+    creator: string | null;
+    website: string | null;
+    buildNumber: string | null;
+    buildDate: string | null;
+
+}
+
 
 @Component({
     selector: 'app-update-papp',
@@ -14,61 +34,93 @@ import {Ng2BalloonMsgService} from "@synerty/ng2-balloon-msg";
 export class UpdatePappComponent extends ComponentLifecycleEventEmitter implements OnInit {
     private readonly filt = {
         papp: 'peek_server',
-        key: "admin.papp.version.info"
+        key: "peek_server.papp.version.info"
     };
 
+    items: PeekAppInfo[] = [];
+
     loader: TupleLoader;
-    pappVersions : any[];
+
+    @Input()
+    licenced: boolean = false;
+
+    serverRestarting: boolean = false;
+    progressPercentage: string = '';
+
+    uploader: FileUploader = new FileUploader({
+        url: '/peek_server.update.papp',
+        isHTML5: true,
+        disableMultipart: true,
+        queueLimit: 1,
+        method: 'POST',
+        autoUpload: true,
+        removeAfterUpload: false
+    });
+    hasBaseDropZoneOver: boolean = false;
 
     constructor(private vortexService: VortexService,
-                private balloonService: Ng2BalloonMsgService) {
+                private balloonMsg: Ng2BalloonMsgService) {
         super();
 
-        this.loader = vortexService.createTupleLoader(this, this.filt);
-        this.loader.observable.subscribe(tuples => this.pappVersions = <any[]>tuples);
+        this.doCheckEvent.subscribe(() => this.checkProgress());
 
+        this.loader = vortexService.createTupleLoader(this, this.filt);
+
+        this.loader.observable.subscribe(
+            tuples => this.items = <PeekAppInfo[]>tuples);
     }
 
     ngOnInit() {
     }
 
-    old() {
-
-        // self.rspGood = function (data, status, headers, config) {
-        //     $scope.progressPercentage = '';
-        //     if (data.error) {
-        //         logError("Peek App Update Failed<br/>" + data.error);
-        //     } else {
-        //         self.loader.load();
-        //         logSuccess("Peek App Update Complete<br/>New version is "
-        //             + data.message);
-        //     }
-        // };
-        //
-        // self.rspBad = function (data, status, headers, config) {
-        //     $scope.progressPercentage = '';
-        //     logError("Peek App Update Failed<br/>" + data.error);
-        // };
-        //
-        // $scope.upload = function (files, event, rejectedFiles) {
-        //     if (rejectedFiles && rejectedFiles.length) {
-        //         logError(rejectedFiles[0].name + " does not end in .tar.bz2");
-        //         return;
-        //     }
-        //
-        //     if (!(files && files.length))
-        //         return;
-        //
-        //     var file = files[0];
-        //     Upload.upload({
-        //         url: '/peek_server_be.update.papp',
-        //         file: file
-        //     }).progress(function (evt) {
-        //         $scope.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        //     }).success(self.rspGood)
-        //         .error(self.rspBad);
-        // };
-
-
+    uploadEnabled() {
+        return this.licenced && this.uploader.queue.length == 0;
     }
+
+    checkProgress() {
+        this.progressPercentage = '';
+
+        if (this.uploader.queue.length != 1)
+            return;
+
+        let fileItem = this.uploader.queue[0];
+        if (fileItem._xhr == null)
+            return;
+
+        let status = fileItem._xhr.status;
+        let responseJsonStr = fileItem._xhr.responseText;
+
+        if (!status || status == 200 && !responseJsonStr.length) {
+            this.progressPercentage = fileItem.progress + '%';
+            return;
+        }
+
+        if (status == 200) {
+            let data = JSON.parse(responseJsonStr);
+
+            this.progressPercentage = '';
+            if (data.error) {
+                this.balloonMsg.showError("Peek App Update Failed\n" + data.error);
+            } else {
+                this.serverRestarting = true;
+                this.balloonMsg.showSuccess("Peek App Update Complete<br/>New version is "
+                    + data.message + "<br/><br/Papp will be restarted");
+            }
+
+        } else {
+            this.progressPercentage = '';
+            this.balloonMsg.showError("Peek App Update Failed<br/> Status : " + status);
+        }
+
+        this.uploader.removeFromQueue(fileItem);
+    }
+
+
+    fileOverBase(e: any): void {
+        this.hasBaseDropZoneOver = e;
+    }
+
 }
+
+
+

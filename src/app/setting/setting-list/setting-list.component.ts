@@ -41,10 +41,7 @@ export class SettingListComponent extends ComponentLifecycleEventEmitter impleme
     constructor(vortexService: VortexService) {
         super();
 
-        this.loader = vortexService.createTupleLoader(this,
-            () => {
-                return this.filt;
-            });
+        this.loader = vortexService.createTupleLoader(this, this.filt);
 
         this.loader.observable.subscribe(
             tuples => this.items = <SettingProperty[]>tuples);
