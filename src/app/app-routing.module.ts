@@ -22,14 +22,14 @@ export const environmentRoute: Route = {
 
 export const updateRoute: Route = {
     path: 'update',
-    // component: UpdateComponent
+    component: UpdateComponent
 };
 
 const routes: Routes = [
     dashboardRoute,
     settingRoute,
     // environmentRoute,
-    // updateRoute,
+    updateRoute,
     {
         path: '**',
         component: DashboardComponent

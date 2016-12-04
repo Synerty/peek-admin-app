@@ -9,7 +9,7 @@ import {AppComponent} from "./app.component";
 import {DashboardModule} from "./dashboard/dashboard.module";
 import {SettingModule} from "./setting/setting.module";
 import {NavbarModule} from "./navbar/navbar.module";
-// import {UpdateModule} from "./update/update.module";
+import {UpdateModule} from "./update/update.module";
 // import {EnvironmentModule} from "./environment/environment.module";
 
 @NgModule({
@@ -25,7 +25,7 @@ import {NavbarModule} from "./navbar/navbar.module";
         DashboardModule,
         SettingModule,
         NavbarModule,
-        // UpdateModule,
+        UpdateModule,
         // EnvironmentModule,
     ],
     providers: [Ng2BalloonMsgService, VortexService],
