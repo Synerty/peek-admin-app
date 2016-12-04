@@ -3,5 +3,15 @@
     "target": "http://localhost:8010/vortex",
     "secure": false,
     "logLevel": "debug"
+  },
+  "/peek_server.update.platform":{
+    "target": "http://localhost:8010/peek_server.update.platform",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/peek_server.update.papp":{
+    "target": "http://localhost:8010/peek_server.update.papp",
+    "secure": false,
+    "logLevel": "debug"
   }
 }

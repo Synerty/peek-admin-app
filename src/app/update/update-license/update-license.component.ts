@@ -22,6 +22,10 @@ export class UpdateLicenseComponent extends ComponentLifecycleEventEmitter imple
     data: {} = {};
     private loader: TupleLoader;
 
+    // @Output("licenced")
+    // licencedOutput : EventEmitter<boolean> = new EventEmitter<boolean>();
+    licenced: boolean = false;
+
     constructor(private vortexService: VortexService,
                 private balloonMsg: Ng2BalloonMsgService) {
         super();
@@ -46,7 +50,8 @@ export class UpdateLicenseComponent extends ComponentLifecycleEventEmitter imple
 
         if (payload.tuples.length) {
             this.data = payload.tuples[0].data;
-            // $scope.pageData.supportExceeded = $scope.data.supportExceeded;
+            this.licenced = !(this.data["supportExceeded"]
+                                && !this.data["demoExceeded"]);
         }
     }
 

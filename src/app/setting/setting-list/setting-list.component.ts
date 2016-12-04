@@ -31,10 +31,10 @@ class SettingProperty extends Tuple {
 export class SettingListComponent extends ComponentLifecycleEventEmitter implements OnInit {
     private readonly filt = {
         papp: "peek_server",
-        key: "admin.setting.data"
+        key: "server.setting.data"
     };
 
-    items : SettingProperty[] = [];
+    items: SettingProperty[] = [];
 
     loader: TupleLoader;
 

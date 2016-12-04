@@ -1,68 +1,104 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Input} from "@angular/core";
+import {
+    VortexService,
+    ComponentLifecycleEventEmitter,
+    TupleLoader,
+    Tuple,
+    Payload
+} from "@synerty/vortexjs";
+import {Ng2BalloonMsgService} from "@synerty/ng2-balloon-msg";
+import {FileUploader} from "ng2-file-upload";
 
 @Component({
     selector: 'app-update-platform',
     templateUrl: './update-platform.component.html',
     styleUrls: ['./update-platform.component.css']
 })
-export class UpdatePlatformComponent implements OnInit {
+export class UpdatePlatformComponent extends ComponentLifecycleEventEmitter implements OnInit {
 
-    constructor() {
+    @Input()
+    licenced: boolean = false;
+
+    serverRestarting: boolean = false;
+    progressPercentage: string = '';
+
+    uploader: FileUploader = new FileUploader({
+        url: '/peek_server.update.platform',
+        isHTML5: true,
+        disableMultipart: true,
+        queueLimit: 1,
+        method: 'POST',
+        autoUpload: true,
+        removeAfterUpload: false
+    });
+    hasBaseDropZoneOver: boolean = false;
+
+    constructor(private vortexService: VortexService,
+                private balloonMsg: Ng2BalloonMsgService) {
+        super();
+
+        this.doCheckEvent.subscribe(() => this.checkProgress());
     }
 
     ngOnInit() {
     }
 
-    old() {
-
-
-        // $scope.serverRestarting = false;
-        //
-        // self.rspGood = function (data, status, headers, config) {
-        //     $scope.progressPercentage = '';
-        //     if (data.error) {
-        //         logError("Software Update Failed<br/>" + data.error);
-        //     } else {
-        //         $scope.serverRestarting = true;
-        //         logSuccess("Software Update Complete<br/>New version is "
-        //             + data.message + "<br/><br/>Server will restart");
-        //         self.reconnectVortex();
-        //     }
-        // };
-        //
-        // self.rspBad = function (data, status, headers, config) {
-        //     $scope.progressPercentage = '';
-        //     logError("Software Update Failed<br/>" + data.error);
-        // };
-        //
-        // self.reconnectVortex = function () {
-        //     setTimeout(function () {
-        //         logSuccess("Server is restarting");
-        //     }, 3000);
-        //     setTimeout(function () {
-        //         location.reload();
-        //     }, 8000);
-        // };
-        //
-        // $scope.upload = function (files, event, rejectedFiles) {
-        //     if (rejectedFiles && rejectedFiles.length) {
-        //         logError(rejectedFiles[0].name + " does not end in .tar.bz2");
-        //         return;
-        //     }
-        //
-        //     if (!(files && files.length))
-        //         return;
-        //
-        //     var file = files[0];
-        //     Upload.upload({
-        //         url: '/peek_server_be.update.platform',
-        //         file: file
-        //     }).progress(function (evt) {
-        //         $scope.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        //     }).success(self.rspGood)
-        //         .error(self.rspBad);
-        // };
-
-
+    uploadEnabled() {
+        return this.licenced && this.uploader.queue.length == 0;
     }
+
+    checkProgress() {
+        this.progressPercentage = '';
+
+        if (this.uploader.queue.length != 1)
+            return;
+
+        let fileItem = this.uploader.queue[0];
+        if (fileItem._xhr == null)
+            return;
+
+        let status = fileItem._xhr.status;
+        let responseJsonStr = fileItem._xhr.responseText;
+
+        if (!status || status == 200 && !responseJsonStr.length) {
+            this.progressPercentage = fileItem.progress + '%';
+            return;
+        }
+
+        let data = JSON.parse(responseJsonStr);
+
+        if (status == 200) {
+            this.progressPercentage = '';
+            if (data.error) {
+                this.balloonMsg.showError("Software Update Failed\n" + data.error);
+            } else {
+                this.serverRestarting = true;
+                this.balloonMsg.showSuccess("Software Update Complete<br/>New version is "
+                    + data.message + "<br/><br/>Server will restart");
+                this.reload();
+            }
+
+        } else {
+            this.progressPercentage = '';
+            this.balloonMsg.showError("Software Update Failed<br/> Status : " + status);
+        }
+
+        this.uploader.removeFromQueue(fileItem);
+    }
+
+
+    fileOverBase(e: any): void {
+        this.hasBaseDropZoneOver = e;
+    }
+
+
+    reload() {
+        setTimeout(function () {
+            this.balloonMsg.showInfo("Server is restarting");
+        }, 3000);
+        setTimeout(function () {
+            location.reload();
+        }, 8000);
+    };
+
 }
