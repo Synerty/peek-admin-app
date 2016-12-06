@@ -44,7 +44,22 @@
                         <a>Environment</a>
                     </li>
                     -->
-                    <li app-nav-apps role="presentation" class="dropdown"></li>
+
+                    <li role="presentation" dropdown >
+                        <a id="papps-dropdown"  class="peek-nav-size"
+                                dropdownToggle >
+                            Papp Admin<span class="caret"></span>
+                        </a>
+                        <ul dropdownMenu role="menu" aria-labelledby="papps-dropdown">
+                            <li routerLinkActive="active"
+                                [routerLink]="item.url"
+                                *ngFor="let item of pappsMenuData">
+                                <a>{{item.title}}</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
 
 
                 </ul>

@@ -6,7 +6,9 @@ import {
     Tuple
 } from "@synerty/vortexjs";
 import {
-    dashboardRoute, settingRoute, updateRoute,
+    dashboardRoute,
+    settingRoute,
+    updateRoute,
     environmentRoute
 } from "../app-routing.module";
 
@@ -22,6 +24,13 @@ class UserTuple extends Tuple {
     username: string;
 }
 
+
+interface PappMenuItem {
+    templateUrl: string;
+    title: string;
+    url: string;
+}
+
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
@@ -29,6 +38,7 @@ class UserTuple extends Tuple {
 })
 export class NavbarComponent extends ComponentLifecycleEventEmitter implements OnInit {
 
+    // -------------- Load User Details
     private readonly userDataFilt = {
         papp: 'peek_server',
         key: "nav.adm.user.data"
@@ -41,16 +51,27 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
 
     user: UserTuple = new UserTuple();
 
-    constructor(vortexService: VortexService) {
-        super();
+    // ----------- Load Papp Menu Items
+    // Make it public because AppRouterModule uses it as well
+    private readonly pappMenuItemsfilt = {
+        papp: "peek_server",
+        key: "nav.adm.papp.list"
+    };
 
-        vortexService.createTupleLoader(this,
-            () => {
-                return this.userDataFilt;
-            }).observable.subscribe(tuples => this.user = <UserTuple>tuples[0]);
+    pappsMenuData: PappMenuItem[] = [];
+
+
+    constructor(private vortexService: VortexService) {
+        super();
     }
 
     ngOnInit() {
+
+        this.vortexService.createTupleLoader(this, this.userDataFilt)
+            .observable.subscribe(tuples => this.user = <UserTuple>tuples[0]);
+
+        this.vortexService.createTupleLoader(this, this.pappMenuItemsfilt)
+            .observable.subscribe(tuples => this.pappsMenuData = <PappMenuItem[]>tuples);
     }
 
 }

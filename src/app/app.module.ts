@@ -1,5 +1,5 @@
 import {BrowserModule} from "@angular/platform-browser";
-import {NgModule} from "@angular/core";
+import {NgModule, NgModuleFactoryLoader} from "@angular/core";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {Ng2BalloonMsgService, Ng2BalloonMsgModule} from "@synerty/ng2-balloon-msg";
@@ -12,6 +12,8 @@ import {NavbarModule} from "./navbar/navbar.module";
 import {UpdateModule} from "./update/update.module";
 import {Ng2BootstrapModule} from "ng2-bootstrap";
 // import {EnvironmentModule} from "./environment/environment.module";
+
+
 
 @NgModule({
     declarations: [
@@ -30,8 +32,10 @@ import {Ng2BootstrapModule} from "ng2-bootstrap";
         UpdateModule,
         // EnvironmentModule,
     ],
-    providers: [Ng2BalloonMsgService, VortexService],
+    providers: [
+        Ng2BalloonMsgService, VortexService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
+
 }
