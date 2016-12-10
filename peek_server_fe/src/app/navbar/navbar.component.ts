@@ -25,10 +25,14 @@ class UserTuple extends Tuple {
 }
 
 
-interface PappMenuItem {
-    templateUrl: string;
+class PappAdminMenuItemTuple extends Tuple {
+    constructor() {
+        super('peek_server.PappAdminMenuItemTuple');
+    }
+
+    name: string;
     title: string;
-    url: string;
+    resourcePath: string;
 }
 
 @Component({
@@ -58,7 +62,7 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
         key: "nav.adm.papp.list"
     };
 
-    pappsMenuData: PappMenuItem[] = [];
+    pappsMenuData: PappAdminMenuItemTuple[] = [];
 
 
     constructor(private vortexService: VortexService) {
@@ -71,7 +75,8 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
             .observable.subscribe(tuples => this.user = <UserTuple>tuples[0]);
 
         this.vortexService.createTupleLoader(this, this.pappMenuItemsfilt)
-            .observable.subscribe(tuples => this.pappsMenuData = <PappMenuItem[]>tuples);
+            .observable.subscribe(tuples => this.pappsMenuData = <PappAdminMenuItemTuple[]>tuples);
     }
+
 
 }

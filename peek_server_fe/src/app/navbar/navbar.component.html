@@ -51,9 +51,9 @@
                             Papp Admin<span class="caret"></span>
                         </a>
                         <ul dropdownMenu role="menu" aria-labelledby="papps-dropdown">
-                            <li routerLinkActive="active"
-                                [routerLink]="item.url"
-                                *ngFor="let item of pappsMenuData">
+                            <li *ngFor="let item of pappsMenuData"
+                                routerLinkActive="active"
+                                [routerLink]="item.resourcePath">
                                 <a>{{item.title}}</a>
                             </li>
                         </ul>
