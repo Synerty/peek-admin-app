@@ -8,6 +8,12 @@ src/papp_*
 *.pyo
 __pycharm__
 
+# Ignore pycharm builds
+dist/
+build/
+*.egg-info/
+
+
 # compiled output
 dist
 /tmp
