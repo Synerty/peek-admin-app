@@ -46,12 +46,12 @@
                     -->
 
                     <li role="presentation" dropdown >
-                        <a id="papps-dropdown"  class="peek-nav-size"
+                        <a id="plugins-dropdown"  class="peek-nav-size"
                                 dropdownToggle >
-                            Papp Admin<span class="caret"></span>
+                            Plugin Admin<span class="caret"></span>
                         </a>
-                        <ul dropdownMenu role="menu" aria-labelledby="papps-dropdown">
-                            <li *ngFor="let item of pappsMenuData"
+                        <ul dropdownMenu role="menu" aria-labelledby="plugins-dropdown">
+                            <li *ngFor="let item of pluginsMenuData"
                                 routerLinkActive="active"
                                 [routerLink]="item.resourcePath">
                                 <a>{{item.title}}</a>

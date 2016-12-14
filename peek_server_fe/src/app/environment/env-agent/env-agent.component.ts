@@ -15,7 +15,7 @@ export class EnvAgentComponent extends ComponentLifecycleEventEmitter implements
 
 
     private readonly filt = {
-        papp: 'peek_server',
+        plugin: 'peek_server',
         key: "peakadm.env.agent.list.data"
     };
 

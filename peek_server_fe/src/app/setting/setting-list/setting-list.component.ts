@@ -30,7 +30,7 @@ class SettingProperty extends Tuple {
 })
 export class SettingListComponent extends ComponentLifecycleEventEmitter implements OnInit {
     private readonly filt = {
-        papp: "peek_server",
+        plugin: "peek_server",
         key: "server.setting.data"
     };
 

@@ -4,7 +4,7 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {UpdateComponent} from "./update/update.component";
 import {SettingComponent} from "./setting/setting.component";
 import {ComponentLifecycleEventEmitter, Tuple} from "@synerty/vortexjs";
-import {pappRoutes} from "../PappRoutes";
+import {pluginRoutes} from "../PluginRoutes";
 
 
 export const dashboardRoute: Route = {
@@ -41,18 +41,18 @@ const staticRoutes: Routes = [
 
 
 
-class PappRoutesTuple extends Tuple {
+class PluginRoutesTuple extends Tuple {
     constructor() {
-        super('peek_server.PappRoutesTuple');
+        super('peek_server.PluginRoutesTuple');
     }
 
-    pappName: string;
+    pluginName: string;
     lazyLoadModulePath: string;
 }
 
 
 @NgModule({
-    imports: [RouterModule.forRoot([ ...pappRoutes, ...staticRoutes])],
+    imports: [RouterModule.forRoot([ ...pluginRoutes, ...staticRoutes])],
     exports: [RouterModule],
     providers: []
 })

@@ -15,7 +15,7 @@ export class EnvServerComponent extends ComponentLifecycleEventEmitter implement
 
 
     private readonly filt = {
-        papp: 'peek_server',
+        plugin: 'peek_server',
         key: "peakadm.env.server.list.data"
     };
 

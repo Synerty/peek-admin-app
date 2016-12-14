@@ -25,9 +25,9 @@ class UserTuple extends Tuple {
 }
 
 
-class PappAdminMenuItemTuple extends Tuple {
+class PluginAdminMenuItemTuple extends Tuple {
     constructor() {
-        super('peek_server.PappAdminMenuItemTuple');
+        super('peek_server.PluginAdminMenuItemTuple');
     }
 
     name: string;
@@ -44,7 +44,7 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
 
     // -------------- Load User Details
     private readonly userDataFilt = {
-        papp: 'peek_server',
+        plugin: 'peek_server',
         key: "nav.adm.user.data"
     };
 
@@ -55,14 +55,14 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
 
     user: UserTuple = new UserTuple();
 
-    // ----------- Load Papp Menu Items
+    // ----------- Load Plugin Menu Items
     // Make it public because AppRouterModule uses it as well
-    private readonly pappMenuItemsfilt = {
-        papp: "peek_server",
-        key: "nav.adm.papp.list"
+    private readonly pluginMenuItemsfilt = {
+        plugin: "peek_server",
+        key: "nav.adm.plugin.list"
     };
 
-    pappsMenuData: PappAdminMenuItemTuple[] = [];
+    pluginsMenuData: PluginAdminMenuItemTuple[] = [];
 
 
     constructor(private vortexService: VortexService) {
@@ -74,8 +74,8 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
         this.vortexService.createTupleLoader(this, this.userDataFilt)
             .observable.subscribe(tuples => this.user = <UserTuple>tuples[0]);
 
-        this.vortexService.createTupleLoader(this, this.pappMenuItemsfilt)
-            .observable.subscribe(tuples => this.pappsMenuData = <PappAdminMenuItemTuple[]>tuples);
+        this.vortexService.createTupleLoader(this, this.pluginMenuItemsfilt)
+            .observable.subscribe(tuples => this.pluginsMenuData = <PluginAdminMenuItemTuple[]>tuples);
     }
 
 

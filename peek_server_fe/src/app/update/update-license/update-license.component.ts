@@ -15,7 +15,7 @@ import {Ng2BalloonMsgService} from "@synerty/ng2-balloon-msg";
 })
 export class UpdateLicenseComponent extends ComponentLifecycleEventEmitter implements OnInit {
     private readonly filt = {
-        papp: "peek_server",
+        plugin: "peek_server",
         key: "admin.capabilities.data"
     };
 

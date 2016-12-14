@@ -9,9 +9,9 @@ import {
 import {Ng2BalloonMsgService} from "@synerty/ng2-balloon-msg";
 import {FileUploader} from "ng2-file-upload";
 
-class PeekAppInfo extends Tuple {
+class PeekPluginInfo extends Tuple {
     constructor() {
-        super('peek_server.papp.info')
+        super('peek_server.plugin.info')
     }
 
     id: number;
@@ -27,17 +27,17 @@ class PeekAppInfo extends Tuple {
 
 
 @Component({
-    selector: 'app-update-papp',
-    templateUrl: './update-papp.component.html',
-    styleUrls: ['./update-papp.component.css']
+    selector: 'app-update-plugin',
+    templateUrl: './update-plugin.component.html',
+    styleUrls: ['./update-plugin.component.css']
 })
-export class UpdatePappComponent extends ComponentLifecycleEventEmitter implements OnInit {
+export class UpdatePluginComponent extends ComponentLifecycleEventEmitter implements OnInit {
     private readonly filt = {
-        papp: 'peek_server',
-        key: "peek_server.papp.version.info"
+        plugin: 'peek_server',
+        key: "peek_server.plugin.version.info"
     };
 
-    items: PeekAppInfo[] = [];
+    items: PeekPluginInfo[] = [];
 
     loader: TupleLoader;
 
@@ -48,7 +48,7 @@ export class UpdatePappComponent extends ComponentLifecycleEventEmitter implemen
     progressPercentage: string = '';
 
     uploader: FileUploader = new FileUploader({
-        url: '/peek_server.update.papp',
+        url: '/peek_server.update.plugin',
         isHTML5: true,
         disableMultipart: true,
         queueLimit: 1,
@@ -67,7 +67,7 @@ export class UpdatePappComponent extends ComponentLifecycleEventEmitter implemen
         this.loader = vortexService.createTupleLoader(this, this.filt);
 
         this.loader.observable.subscribe(
-            tuples => this.items = <PeekAppInfo[]>tuples);
+            tuples => this.items = <PeekPluginInfo[]>tuples);
     }
 
     ngOnInit() {
@@ -104,7 +104,7 @@ export class UpdatePappComponent extends ComponentLifecycleEventEmitter implemen
             } else {
                 this.serverRestarting = true;
                 this.balloonMsg.showSuccess("Peek App Update Complete<br/>New version is "
-                    + data.message + "<br/><br/Papp will be restarted");
+                    + data.message + "<br/><br/Plugin will be restarted");
             }
 
         } else {

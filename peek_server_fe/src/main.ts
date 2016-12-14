@@ -8,7 +8,7 @@ import {AppModule} from "./app/";
 // if (require.hasOwnProperty("context")) {
 // /// <reference path="./webpack.d.ts" />
 // /// <reference path="./webpack-env.d.ts" />
-//     let context = require.context("./", true, /papp_.*\/.*\.ts$/);
+//     let context = require.context("./", true, /plugin_.*\/.*\.ts$/);
 //     context.keys().forEach(context);
 // }
 

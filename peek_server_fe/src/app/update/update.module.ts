@@ -3,7 +3,7 @@ import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {UpdateComponent} from "./update.component";
 import {UpdatePlatformComponent} from "./update-platform/update-platform.component";
-import {UpdatePappComponent} from "./update-papp/update-papp.component";
+import {UpdatePluginComponent} from "./update-plugin/update-plugin.component";
 import {UpdateLicenseComponent} from "./update-license/update-license.component";
 import {FileUploadModule} from "ng2-file-upload";
 
@@ -15,7 +15,7 @@ import {FileUploadModule} from "ng2-file-upload";
     ],
     declarations: [UpdateComponent,
         UpdatePlatformComponent,
-        UpdatePappComponent,
+        UpdatePluginComponent,
         UpdateLicenseComponent
     ]
 })

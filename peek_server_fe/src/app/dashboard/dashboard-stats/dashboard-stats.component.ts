@@ -17,7 +17,7 @@ interface Stat {
 })
 export class DashboardStatsComponent extends ComponentLifecycleEventEmitter implements OnInit {
     private readonly statsFilt = {
-        papp: 'peek_server',
+        plugin: 'peek_server',
         key: "peakadm.dashboard.list.data"
     };
 
