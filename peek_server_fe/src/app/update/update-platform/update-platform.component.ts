@@ -1,11 +1,5 @@
 import {Component, OnInit, Input} from "@angular/core";
-import {
-    VortexService,
-    ComponentLifecycleEventEmitter,
-    TupleLoader,
-    Tuple,
-    Payload
-} from "@synerty/vortexjs";
+import {VortexService, ComponentLifecycleEventEmitter} from "@synerty/vortexjs";
 import {Ng2BalloonMsgService} from "@synerty/ng2-balloon-msg";
 import {FileUploader} from "ng2-file-upload";
 
@@ -22,6 +16,10 @@ export class UpdatePlatformComponent extends ComponentLifecycleEventEmitter impl
     serverRestarting: boolean = false;
     progressPercentage: string = '';
 
+    stderr: string = "";
+    stdout: string = "";
+
+    hasBaseDropZoneOver: boolean = false;
     uploader: FileUploader = new FileUploader({
         url: '/peek_server.update.platform',
         isHTML5: true,
@@ -31,7 +29,6 @@ export class UpdatePlatformComponent extends ComponentLifecycleEventEmitter impl
         autoUpload: true,
         removeAfterUpload: false
     });
-    hasBaseDropZoneOver: boolean = false;
 
     constructor(private vortexService: VortexService,
                 private balloonMsg: Ng2BalloonMsgService) {
@@ -57,6 +54,9 @@ export class UpdatePlatformComponent extends ComponentLifecycleEventEmitter impl
         if (fileItem._xhr == null)
             return;
 
+        this.stderr = "";
+        this.stdout = "";
+
         let status = fileItem._xhr.status;
         let responseJsonStr = fileItem._xhr.responseText;
 
@@ -71,6 +71,8 @@ export class UpdatePlatformComponent extends ComponentLifecycleEventEmitter impl
             this.progressPercentage = '';
             if (data.error) {
                 this.balloonMsg.showError("Software Update Failed\n" + data.error);
+                this.stderr = data.stderr;
+                this.stdout = data.stdout;
             } else {
                 this.serverRestarting = true;
                 this.balloonMsg.showSuccess("Software Update Complete<br/>New version is "

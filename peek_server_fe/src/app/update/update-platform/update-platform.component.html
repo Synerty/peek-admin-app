@@ -48,6 +48,15 @@
 
             </div>
         </div>
+
+        <div [hidden]="!stdout">
+            <pre>{{stdout}}</pre>
+        </div>
+
+        <div [hidden]="!stderr">
+            <pre>{{stderr}}</pre>
+        </div>
+
     </div>
 
 </div>
