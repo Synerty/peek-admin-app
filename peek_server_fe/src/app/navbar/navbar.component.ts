@@ -18,10 +18,10 @@ class UserTuple extends Tuple {
         super('peek_server.PeekAdmNavbarUserTuple');
     }
 
-    supportExceeded: boolean;
-    demoExceeded: boolean;
-    countsExceeded: boolean;
-    username: string;
+    supportExceeded: boolean = false;
+    demoExceeded: boolean = true;
+    countsExceeded: boolean = true;
+    username: string = "None";
 }
 
 
