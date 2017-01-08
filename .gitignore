@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Ignore linked in plugin directories
-peek_server_fe/src/peek_plugin_*
+peek_server_fe/src/app/peek_plugin_*
 
 # Ignore compiled python files
 *.pyc

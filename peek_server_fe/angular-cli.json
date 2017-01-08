@@ -5,30 +5,30 @@
   },
   "apps": [
     {
-      "root": "src",
+       "root": "src/app",
       "outDir": "dist",
       "assets": [
-        "assets",
-        "favicon.ico"
+        "../assets",
+        "../favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
-      "test": "test.ts",
-      "tsconfig": "tsconfig.json",
+      "test": "../test.ts",
+      "tsconfig": "../tsconfig.json",
       "prefix": "app",
       "mobile": false,
       "styles": [
         "styles.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.css"
+        "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.slim.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
+        "../../node_modules/jquery/dist/jquery.slim.js",
+        "../../node_modules/bootstrap/dist/js/bootstrap.js"
       ],
       "environments": {
-        "source": "environments/environment.ts",
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+        "source": "../environments/environment.ts",
+        "dev": "../environments/environment.ts",
+        "prod": "../environments/environment.prod.ts"
       }
     }
   ],
@@ -36,12 +36,12 @@
   "packages": [],
   "e2e": {
     "protractor": {
-      "config": "./protractor.conf.js"
+      "config": "../protractor.conf.js"
     }
   },
   "test": {
     "karma": {
-      "config": "./karma.conf.js"
+      "config": "../karma.conf.js"
     }
   },
   "defaults": {

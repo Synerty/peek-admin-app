@@ -4,7 +4,7 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {UpdateComponent} from "./update/update.component";
 import {SettingComponent} from "./setting/setting.component";
 import {ComponentLifecycleEventEmitter, Tuple} from "@synerty/vortexjs";
-import {pluginRoutes} from "../PluginRoutes";
+import {pluginRoutes} from "./PluginRoutes";
 
 
 export const dashboardRoute: Route = {
