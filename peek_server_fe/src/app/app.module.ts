@@ -10,8 +10,6 @@ import {DashboardModule} from "./dashboard/dashboard.module";
 import {SettingModule} from "./setting/setting.module";
 import {NavbarModule} from "./navbar/navbar.module";
 import {UpdateModule} from "./update/update.module";
-import {Ng2BootstrapModule} from "ng2-bootstrap";
-// import {EnvironmentModule} from "./environment/environment.module";
 
 
 
@@ -24,13 +22,11 @@ import {Ng2BootstrapModule} from "ng2-bootstrap";
         FormsModule,
         HttpModule,
         AppRoutingModule,
-        Ng2BootstrapModule,
         Ng2BalloonMsgModule,
         DashboardModule,
         SettingModule,
         NavbarModule,
-        UpdateModule,
-        // EnvironmentModule,
+        UpdateModule
     ],
     providers: [
         Ng2BalloonMsgService, VortexService],
