@@ -2,10 +2,9 @@ import os
 import shutil
 from distutils.core import setup
 
-from setuptools import find_packages
-
 pip_package_name = "peek-server-fe"
 py_package_name = "peek_server_fe"
+
 package_version = '0.0.11'
 
 egg_info = "%s.egg-info" % pip_package_name
