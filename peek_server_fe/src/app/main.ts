@@ -9,4 +9,11 @@ if (environment.production) {
     enableProdMode();
 }
 
+
+
+import {VortexService} from "@synerty/vortexjs";
+let host = location.host.split(':')[0];
+VortexService.setVortexUrl(`ws://${host}:8013/vortexws`);
+
+
 platformBrowserDynamic().bootstrapModule(AppModule);
