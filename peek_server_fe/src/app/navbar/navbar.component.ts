@@ -1,16 +1,12 @@
 import {Component, OnInit} from "@angular/core";
-import {
-    VortexService,
-    ComponentLifecycleEventEmitter,
-    TupleLoader,
-    Tuple
-} from "@synerty/vortexjs";
+import {ComponentLifecycleEventEmitter, Tuple, VortexService} from "@synerty/vortexjs";
 import {
     dashboardRoute,
+    environmentRoute,
     settingRoute,
-    updateRoute,
-    environmentRoute
+    updateRoute
 } from "../app-routing.module";
+import {homeLinks} from "../plugin-home-links";
 
 
 class UserTuple extends Tuple {
@@ -24,16 +20,6 @@ class UserTuple extends Tuple {
     username: string = "None";
 }
 
-
-class PluginAdminMenuItemTuple extends Tuple {
-    constructor() {
-        super('peek_server.PluginAdminMenuItemTuple');
-    }
-
-    name: string;
-    title: string;
-    resourcePath: string;
-}
 
 @Component({
     selector: 'app-navbar',
@@ -57,12 +43,7 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
 
     // ----------- Load Plugin Menu Items
     // Make it public because AppRouterModule uses it as well
-    private readonly pluginMenuItemsfilt = {
-        plugin: "peek_server",
-        key: "nav.adm.plugin.list"
-    };
-
-    pluginsMenuData: PluginAdminMenuItemTuple[] = [];
+    pluginsMenuData = homeLinks;
 
 
     constructor(private vortexService: VortexService) {
@@ -74,8 +55,6 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
         this.vortexService.createTupleLoader(this, this.userDataFilt)
             .observable.subscribe(tuples => this.user = <UserTuple>tuples[0]);
 
-        this.vortexService.createTupleLoader(this, this.pluginMenuItemsfilt)
-            .observable.subscribe(tuples => this.pluginsMenuData = <PluginAdminMenuItemTuple[]>tuples);
     }
 
 
