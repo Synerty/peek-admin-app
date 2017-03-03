@@ -1,16 +1,5 @@
 {
-  "name": "peek-server-fe",
-  "version": "0.0.0",
-  "license": "MIT",
   "angular-cli": {},
-  "scripts": {
-    "start": "ng serve --host 0.0.0.0 --port 4201 --proxy proxy.conf.json",
-    "lint": "tslint \"src/**/*.ts\"",
-    "test": "ng test",
-    "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
-  },
-  "private": true,
   "dependencies": {
     "@angular/common": "2.2.1",
     "@angular/compiler": "2.2.1",
@@ -20,12 +9,13 @@
     "@angular/platform-browser": "2.2.1",
     "@angular/platform-browser-dynamic": "2.2.1",
     "@angular/router": "3.2.1",
-    "@synerty/vortexjs": "^0.5.12",
+    "@synerty/vortexjs": "^0.6.1",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "es6-promise-loader": "^1.0.2",
     "jquery": "^3.1.1",
     "ng2-file-upload": "^1.1.4-2",
+    "peek-server/peek_plugin_data_dms": "file:node_modules/peek-server/peek_plugin_data_dms",
     "rxjs": "5.0.0-beta.12",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.6.23"
@@ -48,5 +38,16 @@
     "tslint": "3.13.0",
     "typescript": "~2.0.3",
     "webdriver-manager": "10.2.5"
-  }
+  },
+  "license": "MIT",
+  "name": "peek-server-fe",
+  "private": true,
+  "scripts": {
+    "e2e": "protractor",
+    "lint": "tslint \"src/**/*.ts\"",
+    "pree2e": "webdriver-manager update",
+    "start": "ng serve --host 0.0.0.0 --port 4201 --proxy proxy.conf.json",
+    "test": "ng test"
+  },
+  "version": "0.0.0"
 }
