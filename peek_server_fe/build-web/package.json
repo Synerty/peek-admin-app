@@ -1,23 +1,34 @@
 {
-  "angular-cli": {},
+  "name": "build-web",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --host 0.0.0.0 --port 4201 --proxy proxy.conf.json",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
   "dependencies": {
-    "@angular/common": "^2.4.9",
-    "@angular/compiler": "^2.4.9",
-    "@angular/core": "^2.4.9",
-    "@angular/forms": "^2.4.9",
-    "@angular/http": "^2.4.9",
-    "@angular/platform-browser": "^2.4.9",
-    "@angular/platform-browser-dynamic": "^2.4.9",
-    "@angular/router": "^3.4.9",
+    "@angular/common": "^2.4.0",
+    "@angular/compiler": "^2.4.0",
+    "@angular/core": "^2.4.0",
+    "@angular/forms": "^2.4.0",
+    "@angular/http": "^2.4.0",
+    "@angular/platform-browser": "^2.4.0",
+    "@angular/platform-browser-dynamic": "^2.4.0",
+    "@angular/router": "^3.4.0",
     "core-js": "^2.4.1",
-    "@synerty/vortexjs": "^0.6.4",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.7.6",
     "@synerty/ng2-balloon-msg": "^0.1.2",
+    "@synerty/vortexjs": "^0.6.4",
     "bootstrap": "^3.3.7",
     "jquery": "^3.1.1",
     "moment": "^2.17.1",
-    "ng2-file-upload": "^1.2.0",
-    "rxjs": "^5.2.0",
-    "zone.js": "^0.7.6"
+    "ng2-file-upload": "^1.2.0"
   },
   "devDependencies": {
     "@angular/cli": "1.0.0-rc.1",
@@ -37,16 +48,5 @@
     "ts-node": "~2.0.0",
     "tslint": "~4.4.2",
     "typescript": "~2.0.0"
-  },
-  "license": "MIT",
-  "name": "peek-server-fe",
-  "private": true,
-  "scripts": {
-    "e2e": "ng e2e",
-    "lint": "ng lint",
-    "ng": "ng",
-    "start": "ng serve --host 0.0.0.0 --port 4201 --proxy proxy.conf.json",
-    "test": "ng test"
-  },
-  "version": "0.0.0"
+  }
 }

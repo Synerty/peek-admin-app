@@ -1,10 +1,10 @@
-import { PeekServerFePage } from './app.po';
+import { BuildWebPage } from './app.po';
 
-describe('peek-server-fe App', function() {
-  let page: PeekServerFePage;
+describe('build-web App', () => {
+  let page: BuildWebPage;
 
   beforeEach(() => {
-    page = new PeekServerFePage();
+    page = new BuildWebPage();
   });
 
   it('should display message saying app works', () => {

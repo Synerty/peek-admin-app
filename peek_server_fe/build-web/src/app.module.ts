@@ -4,12 +4,12 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {Ng2BalloonMsgService, Ng2BalloonMsgModule} from "@synerty/ng2-balloon-msg";
 import {VortexService, VortexStatusService} from "@synerty/vortexjs";
-import {AppRoutingModule} from "./app-routing.module";
-import {AppComponent} from "./app.component";
-import {DashboardModule} from "./dashboard/dashboard.module";
-import {SettingModule} from "./setting/setting.module";
-import {NavbarModule} from "./navbar/navbar.module";
-import {UpdateModule} from "./update/update.module";
+import {AppRoutingModule} from "./app/app-routing.module";
+import {AppComponent} from "./app/app.component";
+import {DashboardModule} from "./app/dashboard/dashboard.module";
+import {SettingModule} from "./app/setting/setting.module";
+import {NavbarModule} from "./app/navbar/navbar.module";
+import {UpdateModule} from "./app/update/update.module";
 
 
 

@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class PeekServerFePage {
+export class BuildWebPage {
   navigateTo() {
     return browser.get('/');
   }
