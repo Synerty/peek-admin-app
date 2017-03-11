@@ -6,7 +6,7 @@ import {
     settingRoute,
     updateRoute
 } from "../app-routing.module";
-import {homeLinks} from "../plugin-home-links";
+import {homeLinks} from "../../plugin-home-links";
 
 
 class UserTuple extends Tuple {

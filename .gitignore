@@ -9,7 +9,7 @@
 **/plugin-title-bar-links.ts
 **/peek_plugin_*
 **/build-ns/app/app/
-**/build-web/app/app/
+**/build-web/src/app/
 
 
 # Ignore python compiled files
