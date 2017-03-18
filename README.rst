@@ -17,8 +17,10 @@ backend then serves up the the webpack bundles. This is accessible via http://<i
 
 When you are developing with the frontend, you can start it in development mode
 
-    cd <project dir>/peek_server_fe/src
-    npm start
+::
+
+        cd <project dir>/peek_admin/build-web
+        npm start
 
 This will start a NODE development server. It will watch the project files, rebuild the
 project and live reload the browser when you make changes.
