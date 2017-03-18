@@ -2,8 +2,8 @@ import os
 import shutil
 from distutils.core import setup
 
-pip_package_name = "peek-server-fe"
-py_package_name = "peek_server_fe"
+pip_package_name = "peek-admin"
+py_package_name = "peek_admin"
 
 package_version = '0.2.0'
 
