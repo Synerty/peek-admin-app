@@ -1,6 +1,7 @@
 import os
 import shutil
-from distutils.core import setup
+
+from setuptools import find_packages, setup
 
 pip_package_name = "peek-admin"
 py_package_name = "peek_admin"
@@ -36,11 +37,12 @@ def find_package_files():
 
     return paths
 
+
 package_files = find_package_files()
 
 setup(
     name=pip_package_name,
-    packages=[py_package_name],
+    packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     package_data={'': package_files},
     install_requires=[],
     version=package_version,
