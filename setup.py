@@ -46,7 +46,7 @@ setup(
     package_data={'': package_files},
     install_requires=[],
     version=package_version,
-    description='Peek Platform - Server Service (Frontend)',
+    description='Peek Platform - Admin Service (Frontend)',
     author='Synerty',
     author_email='contact@synerty.com',
     url='https://github.com/Synerty/%s' % pip_package_name,
