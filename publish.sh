@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PACKAGE="peek_server_fe"
+PACKAGE="peek_admin"
 
 set -o nounset
 set -o errexit
