@@ -1,5 +1,7 @@
 import os
 import shutil
+import subprocess
+from subprocess import CalledProcessError
 
 from setuptools import find_packages, setup
 
@@ -33,10 +35,14 @@ def find_package_files():
             if [e for e in excludeFilesStartWith if filename.startswith(e)]:
                 continue
 
-            paths.append(os.path.join(path[len(py_package_name) + 1:], filename))
+            relPath = os.path.join(path, filename)
+            try:
+                subprocess.check_call(['git', 'check-ignore', '-q', relPath])
+
+            except CalledProcessError:
+                paths.append(relPath[len(py_package_name) + 1:])
 
     return paths
-
 
 package_files = find_package_files()
 
