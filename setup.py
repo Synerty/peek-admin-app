@@ -51,7 +51,7 @@ setup(
     packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     package_data={'': package_files},
     install_requires=[],
-    version=package_version,
+    zip_safe=False,version=package_version,
     description='Peek Platform - Admin Service (Frontend)',
     author='Synerty',
     author_email='contact@synerty.com',
