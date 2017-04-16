@@ -1,5 +1,7 @@
 import {BrowserModule} from "@angular/platform-browser";
-import {NgModule, NgModuleFactoryLoader} from "@angular/core";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
+import {NgModule} from "@angular/core";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {Ng2BalloonMsgService} from "@synerty/ng2-balloon-msg";
@@ -13,13 +15,13 @@ import {NavbarModule} from "./app/navbar/navbar.module";
 import {UpdateModule} from "./app/update/update.module";
 
 
-
 @NgModule({
     declarations: [
         AppComponent,
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         FormsModule,
         HttpModule,
         AppRoutingModule,
