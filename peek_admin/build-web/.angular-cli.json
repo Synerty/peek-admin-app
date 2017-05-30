@@ -26,7 +26,7 @@
       "scripts": [
         "../node_modules/jquery/dist/jquery.slim.js",
         "../node_modules/bootstrap/dist/js/bootstrap.js",
-        "../node_modules/moment/moment.js"
+        "../node_modules/moment/moment-with-locales.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
