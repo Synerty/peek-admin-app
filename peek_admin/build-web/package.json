@@ -22,7 +22,7 @@
     "@angular/router": "^4.0.2",
     "@synerty/ng2-balloon-msg": "^0.2.5",
     "@synerty/peek-mobile-util": "^0.3.2",
-    "@synerty/vortexjs": "^0.7.4",
+    "@synerty/vortexjs": "^0.7.7",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "jquery": "^3.1.1",
