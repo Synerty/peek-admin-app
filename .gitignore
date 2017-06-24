@@ -7,6 +7,7 @@
 **/plugin-root-modules.ts
 **/plugin-home-links.ts
 **/plugin-title-bar-links.ts
+**/peek_core_*
 **/peek_plugin_*
 **/build-ns/app/app/
 **/build-web/src/app/

@@ -41,13 +41,26 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
 
     user: UserTuple = new UserTuple();
 
-    // ----------- Load Plugin Menu Items
+    // ----------- Load Core Plugin Menu Items
     // Make it public because AppRouterModule uses it as well
-    pluginsMenuData = homeLinks;
+    platformMenuData = [];
+
+    // ----------- Load Optional Plugin Menu Items
+    // Make it public because AppRouterModule uses it as well
+    pluginsMenuData = [];
 
 
     constructor(private vortexService: VortexService) {
         super();
+
+        for (let homeLink of homeLinks) {
+            if (homeLink.name.startsWith("peek_core")) {
+                this.platformMenuData.push(homeLink);
+            } else {
+                this.pluginsMenuData.push(homeLink);
+            }
+        }
+
     }
 
     ngOnInit() {
