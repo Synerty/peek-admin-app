@@ -25,7 +25,7 @@
     "@synerty/peek-mobile-theme": "0.0.9",
     "@synerty/peek-theme": "^0.1.7",
     "@synerty/peek-util": "^0.5.4",
-    "@synerty/vortexjs": "^0.9.28",
+    "@synerty/vortexjs": "^0.9.29",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "jquery": "^3.1.1",
