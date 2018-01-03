@@ -65,8 +65,8 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
 
     ngOnInit() {
 
-        this.vortexService.createTupleLoader(this, this.userDataFilt)
-            .observable.subscribe(tuples => this.user = <UserTuple>tuples[0]);
+        // this.vortexService.createTupleLoader(this, this.userDataFilt)
+        //     .observable.subscribe(tuples => this.user = <UserTuple>tuples[0]);
 
     }
 
