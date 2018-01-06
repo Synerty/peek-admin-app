@@ -4,7 +4,8 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {UpdateComponent} from "./update/update.component";
 import {SettingComponent} from "./setting/setting.component";
 import {ComponentLifecycleEventEmitter, Tuple} from "@synerty/vortexjs";
-import {pluginRoutes} from "../plugin-routes";
+import {pluginAppRoutes} from "../plugin-app-routes";
+import {pluginCfgRoutes} from "../plugin-cfg-routes";
 
 
 export const dashboardRoute: Route = {
@@ -52,7 +53,11 @@ class PluginRoutesTuple extends Tuple {
 
 
 @NgModule({
-    imports: [RouterModule.forRoot([ ...pluginRoutes, ...staticRoutes])],
+    imports: [RouterModule.forRoot([
+      ...pluginAppRoutes,
+      ...pluginCfgRoutes,
+      ...staticRoutes
+    ])],
     exports: [RouterModule],
     providers: []
 })
