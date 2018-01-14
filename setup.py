@@ -8,7 +8,7 @@ from setuptools import find_packages, setup
 pip_package_name = "peek-admin"
 py_package_name = "peek_admin"
 
-package_version = '0.8.1'
+package_version = '###PEEKVER###'
 
 egg_info = "%s.egg-info" % pip_package_name
 if os.path.isdir(egg_info):
