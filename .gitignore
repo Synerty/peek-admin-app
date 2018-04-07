@@ -15,6 +15,7 @@
 **/peek_plugin_*
 **/build-ns/app/app/
 **/build-web/src/app/
+**/build-web/src/@synerty
 
 
 # Ignore python compiled files
