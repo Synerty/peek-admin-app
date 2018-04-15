@@ -5,7 +5,7 @@ import {NgModule} from "@angular/core";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {Ng2BalloonMsgService} from "@synerty/ng2-balloon-msg";
-import {Ng2BalloonMsgModule} from "@synerty/ng2-balloon-msg/index.web";
+import {Ng2BalloonMsgModule} from "@synerty/ng2-balloon-msg-web";
 import {VortexService, VortexStatusService} from "@synerty/vortexjs";
 import {AppRoutingModule} from "./app/app-routing.module";
 import {AppComponent} from "./app/app.component";
