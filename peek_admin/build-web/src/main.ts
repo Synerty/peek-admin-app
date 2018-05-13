@@ -11,5 +11,6 @@ if (environment.production) {
 import {VortexService} from "@synerty/vortexjs";
 let host = location.host.split(':')[0];
 VortexService.setVortexUrl(`ws://${host}:8013/vortexws`);
+VortexService.setVortexClientName("peek-admin");
 
 platformBrowserDynamic().bootstrapModule(AppModule);
