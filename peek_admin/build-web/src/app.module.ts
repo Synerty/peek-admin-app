@@ -26,11 +26,16 @@ import {UpdateModule} from "./app/update/update.module";
 
 import {AngularFontAwesomeModule} from "angular-font-awesome/dist/angular-font-awesome";
 
+import {ACE_CONFIG, AceConfigInterface, AceModule} from 'ngx-ace-wrapper';
+
+const DEFAULT_ACE_CONFIG: AceConfigInterface = {};
+
 @NgModule({
     declarations: [
         AppComponent,
     ],
     imports: [
+        AceModule,
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
@@ -44,6 +49,10 @@ import {AngularFontAwesomeModule} from "angular-font-awesome/dist/angular-font-a
         UpdateModule
     ],
     providers: [
+        {
+            provide: ACE_CONFIG,
+            useValue: DEFAULT_ACE_CONFIG
+        },
         {provide: WebSqlFactoryService, useClass: WebSqlBrowserFactoryService},
         {provide: TupleStorageFactoryService, useClass: TupleStorageFactoryServiceWeb},
         Ng2BalloonMsgService, VortexService, VortexStatusService],
