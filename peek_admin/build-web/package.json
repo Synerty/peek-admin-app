@@ -35,6 +35,7 @@
     "moment": "^2.17.1",
     "ng2-datetime-picker": "^0.13.2",
     "ng2-file-upload": "^1.2.0",
+    "ngx-ace-wrapper": "^6.2.1",
     "rxjs": "^6.2.1",
     "rxjs-compat": "^6.2.1",
     "scss": "^0.2.4",
