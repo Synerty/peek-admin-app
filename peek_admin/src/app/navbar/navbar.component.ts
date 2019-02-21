@@ -1,5 +1,10 @@
 import {Component, OnInit} from "@angular/core";
-import {ComponentLifecycleEventEmitter, Tuple, VortexService} from "@synerty/vortexjs";
+import {
+    ComponentLifecycleEventEmitter,
+    Tuple,
+    VortexService,
+    VortexStatusService
+} from "@synerty/vortexjs";
 import {
     dashboardRoute,
     environmentRoute,
@@ -49,8 +54,11 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
     // Make it public because AppRouterModule uses it as well
     pluginsMenuData = [];
 
+    vortexIsOnline: boolean = false;
 
-    constructor(private vortexService: VortexService) {
+
+    constructor(vortexStatusService: VortexStatusService,
+                private vortexService: VortexService) {
         super();
 
         for (let homeLink of homeLinks) {
@@ -60,6 +68,10 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
                 this.pluginsMenuData.push(homeLink);
             }
         }
+
+        vortexStatusService.isOnline
+            .takeUntil(this.onDestroyEvent)
+            .subscribe(v => this.vortexIsOnline = v);
 
     }
 
