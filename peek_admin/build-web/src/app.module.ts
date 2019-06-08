@@ -23,6 +23,7 @@ import {DashboardModule} from "./app/dashboard/dashboard.module";
 import {SettingModule} from "./app/setting/setting.module";
 import {NavbarModule} from "./app/navbar/navbar.module";
 import {UpdateModule} from "./app/update/update.module";
+import {PluginRootComponent} from "./app/plugin-root.component"
 
 import {AngularFontAwesomeModule} from "angular-font-awesome/dist/angular-font-awesome";
 
@@ -33,6 +34,7 @@ const DEFAULT_ACE_CONFIG: AceConfigInterface = {};
 @NgModule({
     declarations: [
         AppComponent,
+        PluginRootComponent
     ],
     imports: [
         AceModule,
