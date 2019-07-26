@@ -3,7 +3,6 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import {NgModule} from "@angular/core";
 import {FormsModule} from "@angular/forms";
-import {HttpModule} from "@angular/http";
 import {Ng2BalloonMsgService} from "@synerty/ng2-balloon-msg";
 import {Ng2BalloonMsgModule} from "@synerty/ng2-balloon-msg-web";
 import {
@@ -24,12 +23,19 @@ import {SettingModule} from "./app/setting/setting.module";
 import {NavbarModule} from "./app/navbar/navbar.module";
 import {UpdateModule} from "./app/update/update.module";
 import {PluginRootComponent} from "./app/plugin-root.component"
+import {en_US, NgZorroAntdModule, NZ_I18N} from 'ng-zorro-antd';
 
 import {AngularFontAwesomeModule} from "angular-font-awesome/dist/angular-font-awesome";
 
 import {ACE_CONFIG, AceConfigInterface, AceModule} from 'ngx-ace-wrapper';
+/** config angular i18n **/
+import {registerLocaleData} from '@angular/common';
+import en from '@angular/common/locales/en';
 
 const DEFAULT_ACE_CONFIG: AceConfigInterface = {};
+
+
+registerLocaleData(en);
 
 @NgModule({
     declarations: [
@@ -42,15 +48,16 @@ const DEFAULT_ACE_CONFIG: AceConfigInterface = {};
         BrowserAnimationsModule,
         FormsModule,
         AngularFontAwesomeModule,
-        HttpModule,
         AppRoutingModule,
         Ng2BalloonMsgModule,
         DashboardModule,
         SettingModule,
         NavbarModule,
-        UpdateModule
+        UpdateModule,
+        NgZorroAntdModule
     ],
     providers: [
+        {provide: NZ_I18N, useValue: en_US},
         {
             provide: ACE_CONFIG,
             useValue: DEFAULT_ACE_CONFIG
