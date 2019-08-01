@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {
     ComponentLifecycleEventEmitter,
+    Payload,
     Tuple,
     VortexService,
     VortexStatusService
@@ -56,6 +57,7 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
 
     vortexIsOnline: boolean = false;
 
+    private tupleLoader = null;
 
     constructor(vortexStatusService: VortexStatusService,
                 private vortexService: VortexService) {
@@ -77,9 +79,18 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
 
     ngOnInit() {
 
-        // this.vortexService.createTupleLoader(this, this.userDataFilt)
-        //     .observable.subscribe(tuples => this.user = <UserTuple>tuples[0]);
+        this.tupleLoader = this.vortexService
+            .createTupleLoader(this, this.userDataFilt)
+            .observable.subscribe(tuples => this.user = <UserTuple>tuples[0]);
 
+    }
+
+    logoutClicked(): void {
+
+        this.vortexService.sendPayload(
+            new Payload(Object.assign({logout: true}, this.userDataFilt))
+        );
+        setTimeout(() => location.reload(), 100);
     }
 
 

@@ -31,7 +31,7 @@
 
 
                     <li>
-                        <a href="/docs/index.html" class="navbar-brand" target="_self">
+                        <a href="/docs/index.html"  target="_self">
                             <fa name="question-circle"></fa>
                         </a>
                     </li>
@@ -112,7 +112,7 @@
                            role="button" aria-haspopup="true" aria-expanded="false">
                             <span class="glyphicon glyphicon-user"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Logged in as {{user.username}}</a></li>
+                            <li (click)="logoutClicked()"><a href="#">Logout {{user.username}}</a></li>
                         </ul>
                     </li>
                 </ul>
