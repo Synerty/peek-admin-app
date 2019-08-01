@@ -19,9 +19,7 @@ import {
 import {AppRoutingModule} from "./app/app-routing.module";
 import {AppComponent} from "./app/app.component";
 import {DashboardModule} from "./app/dashboard/dashboard.module";
-import {SettingModule} from "./app/setting/setting.module";
 import {NavbarModule} from "./app/navbar/navbar.module";
-import {UpdateModule} from "./app/update/update.module";
 import {PluginRootComponent} from "./app/plugin-root.component"
 import {en_US, NgZorroAntdModule, NZ_I18N} from 'ng-zorro-antd';
 
@@ -51,9 +49,7 @@ registerLocaleData(en);
         AppRoutingModule,
         Ng2BalloonMsgModule,
         DashboardModule,
-        SettingModule,
         NavbarModule,
-        UpdateModule,
         NgZorroAntdModule
     ],
     providers: [

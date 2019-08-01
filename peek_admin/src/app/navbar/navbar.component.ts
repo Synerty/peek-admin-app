@@ -7,10 +7,7 @@ import {
     VortexStatusService
 } from "@synerty/vortexjs";
 import {
-    dashboardRoute,
-    environmentRoute,
-    settingRoute,
-    updateRoute
+    dashboardRoute
 } from "../app-routing.module";
 import {homeLinks} from "../../plugin-home-links";
 
@@ -41,9 +38,6 @@ export class NavbarComponent extends ComponentLifecycleEventEmitter implements O
     };
 
     dashboardPath: string = dashboardRoute.path;
-    settingPath: string = settingRoute.path;
-    environmentPath: string = environmentRoute.path;
-    updatePath: string = updateRoute.path;
 
     user: UserTuple = new UserTuple();
 
