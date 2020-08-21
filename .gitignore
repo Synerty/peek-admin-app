@@ -84,3 +84,8 @@ Thumbs.db
 
 MANIFEST
 .scannerwork/
+
+# Yalc
+.yalc
+.yalc/
+yalc.lock
