@@ -1,14 +1,3 @@
-.navbar-default {
-    border-radius: 0;
-    border: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    background: #fff;
-}
-
-.navbar-default .navbar-nav > .active > a {
-    background: #fff;
-}
-
 i {
     font-size: 16px;
 }
@@ -19,20 +8,4 @@ i.anticon-caret-down {
 
 .navbar-right li.dropdown {
     margin-left: 8px;
-}
-
-.navbar-right {
-    display: flex;
-    align-items: center;
-    height: 50px;
-}
-
-.navbar-right li.dropdown a.dropdown-toggle {
-    display: flex;
-    align-items: center;
-    height: 50px;
-}
-
-*:focus {
-    outline: none !important;
 }
