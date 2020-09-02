@@ -1,36 +1,33 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { Ng2BalloonMsgService } from "@synerty/ng2-balloon-msg";
-import { Ng2BalloonMsgModule } from "@synerty/ng2-balloon-msg-web";
+import { BrowserModule } from "@angular/platform-browser"
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
+import { NgModule } from "@angular/core"
+import { FormsModule } from "@angular/forms"
+import { BalloonMsgService, BalloonMsgModule } from "@synerty/peek-plugin-base-js"
 import {
     TupleStorageFactoryService,
+    TupleStorageFactoryServiceWeb,
     VortexService,
     VortexStatusService,
-    WebSqlFactoryService,
-} from "@synerty/vortexjs";
-import {
-    TupleStorageFactoryServiceWeb,
     WebSqlBrowserFactoryService,
-} from "@synerty/vortexjs/index-browser";
-import { AppRoutingModule } from "./app/app-routing.module";
-import { AppComponent } from "./app/app.component";
-import { DashboardModule } from "./app/dashboard/dashboard.module";
-import { NavbarModule } from "./app/navbar/navbar.module";
-import { PluginRootComponent } from "./app/plugin-root.component";
-import { en_US, NZ_I18N } from "ng-zorro-antd";
+    WebSqlFactoryService,
+} from "@synerty/vortexjs"
+import { AppRoutingModule } from "./app/app-routing.module"
+import { AppComponent } from "./app/app.component"
+import { DashboardModule } from "./app/dashboard/dashboard.module"
+import { NavbarModule } from "./app/navbar/navbar.module"
+import { PluginRootComponent } from "./app/plugin-root.component"
+import { en_US, NZ_I18N } from "ng-zorro-antd"
 
-import { ACE_CONFIG, AceConfigInterface, AceModule } from "ngx-ace-wrapper";
+import { ACE_CONFIG, AceConfigInterface, AceModule } from "ngx-ace-wrapper"
 /** config angular i18n **/
-import { registerLocaleData } from "@angular/common";
-import en from "@angular/common/locales/en";
-import { NzIconModule } from "ng-zorro-antd/icon";
-import { HttpClientModule } from "@angular/common/http";
+import { registerLocaleData } from "@angular/common"
+import en from "@angular/common/locales/en"
+import { NzIconModule } from "ng-zorro-antd/icon"
+import { HttpClientModule } from "@angular/common/http"
 
-const DEFAULT_ACE_CONFIG: AceConfigInterface = {};
+const DEFAULT_ACE_CONFIG: AceConfigInterface = {}
 
-registerLocaleData(en);
+registerLocaleData(en)
 
 @NgModule({
     declarations: [AppComponent, PluginRootComponent],
@@ -42,12 +39,12 @@ registerLocaleData(en);
         NzIconModule,
         HttpClientModule,
         AppRoutingModule,
-        Ng2BalloonMsgModule,
+        BalloonMsgModule,
         DashboardModule,
         NavbarModule,
     ],
     providers: [
-        { provide: NZ_I18N, useValue: en_US },
+        {provide: NZ_I18N, useValue: en_US},
         {
             provide: ACE_CONFIG,
             useValue: DEFAULT_ACE_CONFIG,
@@ -62,7 +59,9 @@ registerLocaleData(en);
         },
         VortexService,
         VortexStatusService,
+        BalloonMsgService,
     ],
     bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}
