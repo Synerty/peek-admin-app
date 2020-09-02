@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, EventEmitter} from "@angular/core";
 import {
   VortexService,
   VortexStatusService,
@@ -16,7 +16,7 @@ interface Stat {
   templateUrl: './dashboard-stats.component.html',
   styleUrls: ['./dashboard-stats.component.css']
 })
-export class DashboardStatsComponent extends ComponentLifecycleEventEmitter implements OnInit {
+export class DashboardStatsComponent extends ComponentLifecycleEventEmitter {
   private readonly statsFilt = {
     plugin: 'peek_server',
     key: "peakadm.dashboard.list.data"
@@ -45,9 +45,6 @@ export class DashboardStatsComponent extends ComponentLifecycleEventEmitter impl
     //       });
     //   });
 
-  }
-
-  ngOnInit() {
   }
 
 }

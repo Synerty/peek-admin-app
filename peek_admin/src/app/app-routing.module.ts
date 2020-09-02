@@ -5,12 +5,10 @@ import {ComponentLifecycleEventEmitter, Tuple} from "@synerty/vortexjs";
 import {pluginAppRoutes} from "../plugin-app-routes";
 import {pluginCfgRoutes} from "../plugin-cfg-routes";
 
-
 export const dashboardRoute: Route = {
     path: '',
     component: DashboardComponent
 };
-
 
 const staticRoutes: Routes = [
     dashboardRoute,
@@ -18,10 +16,8 @@ const staticRoutes: Routes = [
     {
         path: '**',
         component: DashboardComponent
-
     }
 ];
-
 
 class PluginRoutesTuple extends Tuple {
     constructor() {
@@ -32,15 +28,14 @@ class PluginRoutesTuple extends Tuple {
     lazyLoadModulePath: string;
 }
 
-
 @NgModule({
-    imports: [RouterModule.forRoot([
-        ...pluginAppRoutes,
-        ...pluginCfgRoutes,
-        ...staticRoutes
-    ])],
-    exports: [RouterModule],
-    providers: []
+    imports: [
+        RouterModule.forRoot([
+            ...pluginAppRoutes,
+            ...pluginCfgRoutes,
+            ...staticRoutes
+        ])
+    ],
+    exports: [RouterModule]
 })
-export class AppRoutingModule extends ComponentLifecycleEventEmitter {
-}
+export class AppRoutingModule { }
