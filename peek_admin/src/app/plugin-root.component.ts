@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core"
 
 @Component({
     selector: "peek-main-root-components",
@@ -6,11 +6,5 @@ import {Component} from "@angular/core";
     moduleId: module.id
 })
 export class PluginRootComponent {
-
-    constructor() {
-
-    }
-
-
 }
 
