@@ -5,12 +5,16 @@
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
-    "baseUrl": ".",
+    "baseUrl": "./",
     "experimentalDecorators": true,
     "target": "es2015",
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@_peek/*": [ "@_peek/*" ],
+      "@peek/*": [ "@peek/*" ]
+    }
   }
 }

@@ -4,6 +4,10 @@
 /dist
 /tmp
 
+# peek
+@_peek/
+@peek/
+
 # dependencies
 /node_modules
 

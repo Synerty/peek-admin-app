@@ -1,24 +1,11 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-#Ignore the automatically generated files
+# Ignore the automatically generated files
 .lastHash
 
-**/plugin-app-routes.ts
-**/plugin-cfg-routes.ts
-**/plugin-root-services.ts
-**/plugin-root-modules.ts
-**/plugin-home-links.ts
-**/plugin-config-links.ts
-**/plugin-title-bar-links.ts
-**/plugin-footer-bar-links.ts
-**/plugin-root.component.ns.html
-**/plugin-root.component.web.html
-**/peek_core_*
-**/peek_plugin_*
-**/build-ns/app/app/
-**/build-web/src/app/
-peek_admin/build-web/src/synerty
-**/build-web/src/@synerty
+# Peek
+@_peek/
+@peek/
 
 # Ignore python compiled files
 *.pyc
