@@ -2,8 +2,6 @@
 
 # Ignore the automatically generated files
 .lastHash
-
-# Peek
 @_peek/
 @peek/
 

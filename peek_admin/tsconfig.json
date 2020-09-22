@@ -1,20 +1,19 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "downlevelIteration": true,
+    "importHelpers": true,
     "outDir": "./dist/out-tsc",
+    "baseUrl": "src",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
-    "baseUrl": "./",
     "experimentalDecorators": true,
     "target": "es2015",
     "lib": [
-      "es2018",
+      "es2016",
       "dom"
     ],
-    "paths": {
-      "@_peek/*": [ "@_peek/*" ],
-      "@peek/*": [ "@peek/*" ]
-    }
+    "module": "esnext"
   }
 }

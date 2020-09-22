@@ -5,7 +5,11 @@
         "baseUrl": "",
         "types": [
             "jquery"
-        ]
+        ],
+        "paths": {
+          "@_peek/*": [ "@_peek/*" ],
+          "@peek/*": [ "@peek/*" ]
+        }
     },
     "exclude": [
         "test.ts",
