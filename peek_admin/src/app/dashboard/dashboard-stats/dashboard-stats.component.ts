@@ -3,14 +3,14 @@ import { VortexService, VortexStatusService } from "@synerty/vortexjs"
 import { NgLifeCycleEvents } from "@synerty/peek-plugin-base-js"
 
 interface Stat {
-    desc: string;
-    value: string;
+    desc: string
+    value: string
 }
 
 @Component({
     selector: "app-dashboard-stats",
     templateUrl: "./dashboard-stats.component.html",
-    styleUrls: ["./dashboard-stats.component.css"]
+    styleUrls: ["./dashboard-stats.component.scss"]
 })
 export class DashboardStatsComponent extends NgLifeCycleEvents {
     private readonly statsFilt = {

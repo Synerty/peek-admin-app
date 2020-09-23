@@ -18,7 +18,7 @@ class UserTuple extends Tuple {
 @Component({
     selector: "app-navbar",
     templateUrl: "./navbar.component.html",
-    styleUrls: ["./navbar.component.css"]
+    styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent extends NgLifeCycleEvents implements OnInit {
     dashboardPath: string = dashboardRoute.path
