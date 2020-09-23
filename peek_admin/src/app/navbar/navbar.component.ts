@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core"
-import { ComponentLifecycleEventEmitter, Payload, Tuple, VortexService, VortexStatusService } from "@synerty/vortexjs"
+import { Payload, Tuple, VortexService, VortexStatusService } from "@synerty/vortexjs"
 import { dashboardRoute } from "../app-routing.module"
-import { homeLinks } from "../../plugin-home-links"
+import { homeLinks } from "@peek/plugin-home-links"
+import { NgLifeCycleEvents } from "@synerty/peek-plugin-base-js"
 
 class UserTuple extends Tuple {
     supportExceeded: boolean = false
@@ -17,21 +18,21 @@ class UserTuple extends Tuple {
 @Component({
     selector: "app-navbar",
     templateUrl: "./navbar.component.html",
-    styleUrls: ["./navbar.component.scss"]
+    styleUrls: ["./navbar.component.css"]
 })
-export class NavbarComponent extends ComponentLifecycleEventEmitter implements OnInit {
+export class NavbarComponent extends NgLifeCycleEvents implements OnInit {
     dashboardPath: string = dashboardRoute.path
     user: UserTuple = new UserTuple()
-    
-    // ----------- Load Core Plugin Menu Items
     // Make it public because AppRouterModule uses it as well
     platformMenuData = []
     
-    // ----------- Load Optional Plugin Menu Items
+    // ----------- Load Core Plugin Menu Items
     // Make it public because AppRouterModule uses it as well
     pluginsMenuData = []
-    vortexIsOnline: boolean = false
     
+    // ----------- Load Optional Plugin Menu Items
+    vortexIsOnline: boolean = false
+    // -------------- Load User Details
     private readonly userDataFilt = {
         plugin: "peek_server",
         key: "nav.adm.user.data"

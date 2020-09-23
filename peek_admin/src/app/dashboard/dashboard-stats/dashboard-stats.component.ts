@@ -1,24 +1,25 @@
 import { Component } from "@angular/core"
-import { ComponentLifecycleEventEmitter, VortexService, VortexStatusService } from "@synerty/vortexjs"
+import { VortexService, VortexStatusService } from "@synerty/vortexjs"
+import { NgLifeCycleEvents } from "@synerty/peek-plugin-base-js"
 
 interface Stat {
-    desc: string
-    value: string
+    desc: string;
+    value: string;
 }
 
 @Component({
     selector: "app-dashboard-stats",
     templateUrl: "./dashboard-stats.component.html",
-    styleUrls: ["./dashboard-stats.component.scss"]
+    styleUrls: ["./dashboard-stats.component.css"]
 })
-export class DashboardStatsComponent extends ComponentLifecycleEventEmitter {
-    // stats: Stat[] = []
-    // loader: TupleLoader
-  
+export class DashboardStatsComponent extends NgLifeCycleEvents {
     private readonly statsFilt = {
         plugin: "peek_server",
         key: "peakadm.dashboard.list.data"
     }
+    
+    // stats: Stat[] = [];
+    // loader: TupleLoader;
     
     constructor(
         vortexService: VortexService,
@@ -42,5 +43,7 @@ export class DashboardStatsComponent extends ComponentLifecycleEventEmitter {
         //         });
         //       });
         //   });
+        
     }
+    
 }

@@ -7,8 +7,8 @@ import { VortexService } from "@synerty/vortexjs"
     styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit {
-    
-    constructor(private vortexService: VortexService) { }
+    constructor(private vortexService: VortexService) {
+    }
     
     ngOnInit() {
         // This causes two reconnections when the app starts
