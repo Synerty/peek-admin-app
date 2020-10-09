@@ -5,8 +5,8 @@
 /tmp
 
 # peek
-@_peek/
 @peek/
+@_peek/
 
 # dependencies
 /node_modules

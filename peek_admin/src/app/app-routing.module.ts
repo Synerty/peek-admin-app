@@ -2,8 +2,8 @@ import { NgModule } from "@angular/core"
 import { Route, RouterModule, Routes } from "@angular/router"
 import { DashboardComponent } from "./dashboard/dashboard.component"
 import { Tuple } from "@synerty/vortexjs"
-import { pluginAppRoutes } from "@peek/plugin-app-routes"
-import { pluginCfgRoutes } from "@peek/plugin-cfg-routes"
+import { pluginAppRoutes } from "@_peek/plugin-app-routes"
+import { pluginCfgRoutes } from "@_peek/plugin-cfg-routes"
 
 export const dashboardRoute: Route = {
     path: "",
