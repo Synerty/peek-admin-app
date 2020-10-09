@@ -9,7 +9,7 @@
 *.pyc
 __pycache__
 
-# Nativescript stuff
+# Frontend
 npm-debug.log
 .DS_Store
 
