@@ -16,7 +16,7 @@ import { AppComponent } from "./app/app.component"
 import { DashboardModule } from "./app/dashboard/dashboard.module"
 import { NavbarModule } from "./app/navbar/navbar.module"
 import { PluginRootComponent } from "./app/plugin-root.component"
-import { en_US, NZ_I18N } from "ng-zorro-antd"
+import { en_US, NZ_I18N } from "ng-zorro-antd/i18n"
 
 import { ACE_CONFIG, AceConfigInterface, AceModule } from "ngx-ace-wrapper"
 /** config angular i18n **/
