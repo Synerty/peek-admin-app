@@ -24,7 +24,7 @@ class PluginRoutesTuple extends Tuple {
     lazyLoadModulePath: string
     
     constructor() {
-        super("peek_server.PluginRoutesTuple")
+        super("peek_logic_service.PluginRoutesTuple")
     }
 }
 

@@ -19,7 +19,7 @@ When you are developing with the frontend, you can start it in development mode
 
 ::
 
-        cd <project dir>/peek_admin
+        cd <project dir>/peek_admin_app
         npm start
 
 This will start a NODE development server. It will watch the project files, rebuild the

@@ -5,8 +5,8 @@ from subprocess import CalledProcessError
 
 from setuptools import find_packages, setup
 
-pip_package_name = "peek-admin"
-py_package_name = "peek_admin"
+pip_package_name = "peek-admin-app"
+py_package_name = "peek_admin_app"
 
 package_version = '0.0.0'
 

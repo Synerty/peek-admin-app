@@ -10,13 +10,13 @@
         "logLevel": "debug",
         "ws": true
     },
-    "/peek_server.update.platform": {
-        "target": "http://localhost:8010/peek_server.update.platform",
+    "/peek_logic_service.update.platform": {
+        "target": "http://localhost:8010/peek_logic_service.update.platform",
         "secure": false,
         "logLevel": "debug"
     },
-    "/peek_server.update.plugin": {
-        "target": "http://localhost:8010/peek_server.update.plugin",
+    "/peek_logic_service.update.plugin": {
+        "target": "http://localhost:8010/peek_logic_service.update.plugin",
         "secure": false,
         "logLevel": "debug"
     }

@@ -11,7 +11,7 @@ class UserTuple extends Tuple {
     username: string = "None"
     
     constructor() {
-        super("peek_server.PeekAdmNavbarUserTuple")
+        super("peek_logic_service.PeekAdmNavbarUserTuple")
     }
 }
 
@@ -34,7 +34,7 @@ export class NavbarComponent extends NgLifeCycleEvents implements OnInit {
     vortexIsOnline: boolean = false
     // -------------- Load User Details
     private readonly userDataFilt = {
-        plugin: "peek_server",
+        plugin: "peek_logic_service",
         key: "nav.adm.user.data"
     }
     private tupleLoader = null

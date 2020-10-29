@@ -14,7 +14,7 @@ interface Stat {
 })
 export class DashboardStatsComponent extends NgLifeCycleEvents {
     private readonly statsFilt = {
-        plugin: "peek_server",
+        plugin: "peek_logic_service",
         key: "peakadm.dashboard.list.data"
     }
     

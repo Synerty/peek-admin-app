@@ -13,8 +13,8 @@ __pycache__
 npm-debug.log
 .DS_Store
 
-peek_client_fe/**/src/**/*.js
-peek_client_fe/**/src/*.js.map
+peek_office_service_fe/**/src/**/*.js
+peek_office_service_fe/**/src/*.js.map
 hooks
 lib/
 node_modules/
