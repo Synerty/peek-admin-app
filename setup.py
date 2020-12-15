@@ -5,10 +5,25 @@ from subprocess import CalledProcessError
 
 from setuptools import find_packages, setup
 
-pip_package_name = "peek-admin-app"
-py_package_name = "peek_admin_app"
+###############################################################################
+# Define variables
+#
+# Modify these values to fork a new plugin
+#
 
+author = "Synerty"
+author_email = 'contact@synerty.com'
+py_package_name = "peek_admin_app"
+pip_package_name = py_package_name.replace('_', '-')
 package_version = '0.0.0'
+description = 'Peek Plugin ENAMC Email Incidents.'
+
+download_url = 'https://bitbucket.org/synerty/%s/get/%s.zip'
+download_url %= pip_package_name, package_version
+url = 'https://bitbucket.org/synerty/%s' % pip_package_name
+
+###############################################################################
+# Customise the package file finder code
 
 egg_info = "%s.egg-info" % pip_package_name
 if os.path.isdir(egg_info):
