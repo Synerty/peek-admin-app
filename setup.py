@@ -64,20 +64,39 @@ def find_package_files():
 
 package_files = find_package_files()
 
+###############################################################################
+# Define the dependencies
+
+# Ensure the dependency is the same major number
+# and no older then this version
+
+requirements = [
+    "peek-plugin-base"
+]
+
+# Force the dependencies to be the same branch
+reqVer = '.'.join(package_version.split('.')[0:2]) + ".*"
+
+# >=2.0.*,>=2.0.6
+requirements = ["%s==%s,>=%s" % (pkg, reqVer, package_version)
+                if pkg.startswith("peek") else pkg
+                for pkg in requirements]
+
+###############################################################################
+# Call the setuptools
+
 setup(
     name=pip_package_name,
     packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     package_data={'': package_files},
-    install_requires=[],
-    zip_safe=False, version=package_version,
-    description='Peek Platform - Admin Service (Frontend)',
-    author='Synerty',
-    author_email='contact@synerty.com',
-    url='https://github.com/Synerty/%s' % pip_package_name,
-    download_url='https://github.com/Synerty/%s/tarball/%s' % (
-        pip_package_name, package_version),
+    install_requires=requirements,
+    zip_safe=False,
+    version=package_version,
+    description=description,
+    author=author,
+    author_email=author_email,
+    url=url,
+    download_url=download_url,
     keywords=['Peek', 'Python', 'Platform', 'synerty'],
-    classifiers=[
-        "Programming Language :: Python :: 3.5",
-    ],
+    classifiers=[],
 )
