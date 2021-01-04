@@ -1,5 +1,10 @@
 import { Component, OnInit } from "@angular/core"
-import { Payload, Tuple, VortexService, VortexStatusService } from "@synerty/vortexjs"
+import {
+    Payload,
+    Tuple,
+    VortexService,
+    VortexStatusService
+} from "@synerty/vortexjs"
 import { dashboardRoute } from "../app-routing.module"
 import { homeLinks } from "@_peek/plugin-home-links"
 import { NgLifeCycleEvents } from "@synerty/peek-plugin-base-js"
