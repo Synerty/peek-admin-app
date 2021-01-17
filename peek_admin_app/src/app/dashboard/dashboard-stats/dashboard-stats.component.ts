@@ -1,6 +1,9 @@
 import { Component } from "@angular/core"
-import { VortexService, VortexStatusService } from "@synerty/vortexjs"
-import { NgLifeCycleEvents } from "@synerty/peek-plugin-base-js"
+import {
+    NgLifeCycleEvents,
+    VortexService,
+    VortexStatusService
+} from "@synerty/vortexjs"
 
 interface Stat {
     desc: string

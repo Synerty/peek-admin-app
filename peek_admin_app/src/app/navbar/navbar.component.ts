@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import {
+    NgLifeCycleEvents,
     Payload,
     Tuple,
     VortexService,
@@ -7,7 +8,6 @@ import {
 } from "@synerty/vortexjs"
 import { dashboardRoute } from "../app-routing.module"
 import { homeLinks } from "@_peek/plugin-home-links"
-import { NgLifeCycleEvents } from "@synerty/peek-plugin-base-js"
 
 class UserTuple extends Tuple {
     supportExceeded: boolean = false
