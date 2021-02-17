@@ -1,27 +1,32 @@
 import { Component, OnInit } from "@angular/core"
-import { VortexService, VortexStatusService , NgLifeCycleEvents} from "@synerty/vortexjs"
+import {
+    NgLifeCycleEvents,
+    VortexService,
+    VortexStatusService
+} from "@synerty/vortexjs"
 import { BalloonMsgService } from "@synerty/peek-plugin-base-js"
-import { takeUntil } from "rxjs-compat/operator/takeUntil";
+import { takeUntil } from "rxjs/operators"
 
 @Component({
     selector: "app-root",
     templateUrl: "./app.component.html",
     styleUrls: ["./app.component.scss"]
 })
-export class AppComponent implements OnInit extends NgLifeCycleEvents{
-    constructor(private vortexService: VortexService,
-                private vortexStatusService: VortexStatusService,
-                private balloonMsg: BalloonMsgService,
+export class AppComponent extends NgLifeCycleEvents implements OnInit {
+    constructor(
+        private vortexService: VortexService,
+        private vortexStatusService: VortexStatusService,
+        private balloonMsg: BalloonMsgService,
     ) {
-        super();
+        super()
+        
         vortexStatusService.errors
             .pipe(takeUntil(this.onDestroyEvent))
-            .subscribe((msg:string) => balloonMsg.showError(msg))
+            .subscribe((msg: string) => balloonMsg.showError(msg))
         
         vortexStatusService.warning
             .pipe(takeUntil(this.onDestroyEvent))
-            .subscribe((msg:string) => balloonMsg.showWarning(msg))
-        
+            .subscribe((msg: string) => balloonMsg.showWarning(msg))
     }
     
     ngOnInit() {
