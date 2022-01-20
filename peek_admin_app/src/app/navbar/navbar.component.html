@@ -25,7 +25,7 @@
                     </li>
                 </ul>
             </div>
-            
+
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div
                 class="collapse navbar-collapse"
@@ -41,7 +41,7 @@
                             ></i>
                         </a>
                     </li>
-                    
+
                     <li class="dropdown">
                         <a
                             aria-expanded="false"
@@ -50,9 +50,9 @@
                             data-toggle="dropdown"
                             href="#"
                             role="button"
-                        >Platform
+                            >Platform
                             <i nz-icon nzTheme="outline" nzType="caret-down"></i
-                            ></a>
+                        ></a>
                         <ul class="dropdown-menu">
                             <li
                                 *ngFor="let item of platformMenuData"
@@ -71,7 +71,7 @@
                             data-toggle="dropdown"
                             href="#"
                             role="button"
-                        >Plugins
+                            >Plugins
                             <i
                                 nz-icon
                                 nzTheme="outline"
@@ -89,30 +89,27 @@
                         </ul>
                     </li>
                 </ul>
-                
+
                 <ul *ngIf="!vortexIsOnline" class="nav navbar-nav navbar-right">
                     <li class="text-muted text-right small">
                         <i nz-icon nzTheme="outline" nzType="disconnect"></i>
                     </li>
                 </ul>
-                
+
                 <ul class="nav navbar-nav navbar-right">
                     <li class="text-muted text-right small">
-                        <span
-                            class="small"
-                        >Product of
-                            <a
-                                href="https://www.synerty.com"
-                            >Synerty Pty Ltd,</a
+                        <span class="small"
+                            >Product of
+                            <a href="https://www.synerty.com"
+                                >Synerty Pty Ltd,</a
                             >
                             All Rights Reserved</span
                         ><br />
                         <span class="small">Version 0.0.0</span><br />
                         <div *ngIf="user.supportExceeded && !user.demoExceeded">
                             <span class="small">
-                                <a
-                                    [href]="updatePath" class="text-danger"
-                                >Support Expired</a
+                                <a [href]="updatePath" class="text-danger"
+                                    >Support Expired</a
                                 > </span
                             ><br />
                         </div>
@@ -127,7 +124,7 @@
                             role="button"
                         >
                             <i nz-icon nzTheme="outline" nzType="user"></i
-                            ></a>
+                        ></a>
                         <ul class="dropdown-menu">
                             <li (click)="logoutClicked()">
                                 <a href="#">Logout {{ user.username }}</a>

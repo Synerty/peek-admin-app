@@ -1,18 +1,18 @@
-import { enableProdMode } from "@angular/core"
-import { platformBrowserDynamic } from "@angular/platform-browser-dynamic"
+import { enableProdMode } from "@angular/core";
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
-import { AppModule } from "./app.module"
-import { environment } from "./environments/environment"
+import { AppModule } from "./app.module";
+import { environment } from "./environments/environment";
+import { VortexService } from "@synerty/vortexjs";
 
 if (environment.production) {
-    enableProdMode()
+    enableProdMode();
 }
 
-import { VortexService } from "@synerty/vortexjs"
+const protocol = location.protocol.toLowerCase() == "https:" ? "wss" : "ws";
+VortexService.setVortexUrl(
+    `${protocol}://${location.hostname}:${location.port}/vortexws`
+);
+VortexService.setVortexClientName("peek-admin-app");
 
-const protocol = location.protocol.toLowerCase() == "https:" ? "wss" : "ws"
-VortexService.setVortexUrl(`${protocol}://${location.hostname}:${location.port}/vortexws`)
-VortexService.setVortexClientName("peek-admin-app")
-
-platformBrowserDynamic()
-    .bootstrapModule(AppModule)
+platformBrowserDynamic().bootstrapModule(AppModule);

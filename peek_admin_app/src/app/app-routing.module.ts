@@ -1,30 +1,30 @@
-import { NgModule } from "@angular/core"
-import { Route, RouterModule, Routes } from "@angular/router"
-import { DashboardComponent } from "./dashboard/dashboard.component"
-import { Tuple } from "@synerty/vortexjs"
-import { pluginAppRoutes } from "@_peek/plugin-app-routes"
-import { pluginCfgRoutes } from "@_peek/plugin-cfg-routes"
+import { NgModule } from "@angular/core";
+import { Route, RouterModule, Routes } from "@angular/router";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { Tuple } from "@synerty/vortexjs";
+import { pluginAppRoutes } from "@_peek/plugin-app-routes";
+import { pluginCfgRoutes } from "@_peek/plugin-cfg-routes";
 
 export const dashboardRoute: Route = {
     path: "",
-    component: DashboardComponent
-}
+    component: DashboardComponent,
+};
 
 const staticRoutes: Routes = [
     dashboardRoute,
     // environmentRoute,
     {
         path: "**",
-        component: DashboardComponent
-    }
-]
+        component: DashboardComponent,
+    },
+];
 
 class PluginRoutesTuple extends Tuple {
-    pluginName: string
-    lazyLoadModulePath: string
-    
+    pluginName: string;
+    lazyLoadModulePath: string;
+
     constructor() {
-        super("peek_logic_service.PluginRoutesTuple")
+        super("peek_logic_service.PluginRoutesTuple");
     }
 }
 
@@ -33,10 +33,9 @@ class PluginRoutesTuple extends Tuple {
         RouterModule.forRoot([
             ...pluginAppRoutes,
             ...pluginCfgRoutes,
-            ...staticRoutes
-        ])
+            ...staticRoutes,
+        ]),
     ],
-    exports: [RouterModule]
+    exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
