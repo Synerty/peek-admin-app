@@ -35,8 +35,8 @@ export class DashboardStatsComponent extends NgLifeCycleEvents {
         //
         // vortexStatus
         //   .isOnline
-        //   .filter(online => online)
-        //   .first()
+        //   .pipe(filter(online => online))
+        //   .pipe(first())
         //   .subscribe(() => {
         //     this.loader.observable.subscribe(
         //       tuples => {

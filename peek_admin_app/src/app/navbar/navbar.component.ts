@@ -1,3 +1,4 @@
+import { takeUntil } from "rxjs/operators";
 import { Component, OnInit } from "@angular/core";
 import {
     NgLifeCycleEvents,
@@ -59,7 +60,7 @@ export class NavbarComponent extends NgLifeCycleEvents implements OnInit {
         }
 
         vortexStatusService.isOnline
-            .takeUntil(this.onDestroyEvent)
+            .pipe(takeUntil(this.onDestroyEvent))
             .subscribe((v) => (this.vortexIsOnline = v));
     }
 
