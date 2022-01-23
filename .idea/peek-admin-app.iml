@@ -5,6 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/peek_admin_app/src/@_peek" />
       <excludeFolder url="file://$MODULE_DIR$/peek_admin_app/src/@peek" />
       <excludeFolder url="file://$MODULE_DIR$/peek_admin_app.egg-info" />
+      <excludeFolder url="file://$MODULE_DIR$/peek_admin_app/dist" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.9 (dev-peek)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
