@@ -9,6 +9,7 @@ import {
 } from "@synerty/vortexjs";
 import { dashboardRoute } from "../app-routing.module";
 import { homeLinks } from "@_peek/plugin-home-links";
+import { peekAppEnvironment } from "../../environments/peek-app-environment";
 
 class UserTuple extends Tuple {
     supportExceeded: boolean = false;
@@ -27,6 +28,8 @@ class UserTuple extends Tuple {
     styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent extends NgLifeCycleEvents implements OnInit {
+    readonly appVersion: string = peekAppEnvironment.version;
+
     dashboardPath: string = dashboardRoute.path;
     user: UserTuple = new UserTuple();
     // Make it public because AppRouterModule uses it as well
