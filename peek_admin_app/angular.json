@@ -36,7 +36,8 @@
                             "node_modules/jquery/dist/jquery.slim.js",
                             "node_modules/bootstrap/dist/js/bootstrap.js",
                             "node_modules/moment/min/moment-with-locales.min.js"
-                        ]
+                        ],
+                        "webWorkerTsConfig": "tsconfig.worker.json"
                     },
                     "configurations": {
                         "production": {
@@ -45,10 +46,10 @@
                             "sourceMap": false,
                             "extractCss": true,
                             "namedChunks": false,
-                            "aot": true,
+                            "aot": false,
                             "extractLicenses": true,
                             "vendorChunk": false,
-                            "buildOptimizer": true,
+                            "buildOptimizer": false,
                             "fileReplacements": [
                                 {
                                     "replace": "src/environments/environment.ts",
@@ -109,7 +110,8 @@
                     "options": {
                         "tsConfig": [
                             "src/tsconfig.app.json",
-                            "src/tsconfig.spec.json"
+                            "src/tsconfig.spec.json",
+                            "tsconfig.worker.json"
                         ],
                         "exclude": []
                     }
