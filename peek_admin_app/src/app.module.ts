@@ -3,16 +3,14 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import {
-    BalloonMsgService,
     BalloonMsgModule,
+    BalloonMsgService,
 } from "@synerty/peek-plugin-base-js";
 import {
     TupleStorageFactoryService,
     TupleStorageFactoryServiceWeb,
     VortexService,
     VortexStatusService,
-    WebSqlBrowserFactoryService,
-    WebSqlFactoryService,
 } from "@synerty/vortexjs";
 import { AppRoutingModule } from "./app/app-routing.module";
 import { AppComponent } from "./app/app.component";
@@ -51,10 +49,6 @@ registerLocaleData(en);
         {
             provide: ACE_CONFIG,
             useValue: DEFAULT_ACE_CONFIG,
-        },
-        {
-            provide: WebSqlFactoryService,
-            useClass: WebSqlBrowserFactoryService,
         },
         {
             provide: TupleStorageFactoryService,
