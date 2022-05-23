@@ -11,6 +11,7 @@ import {
     TupleStorageFactoryServiceWeb,
     VortexService,
     VortexStatusService,
+    SqlFactoryService,
 } from "@synerty/vortexjs";
 import { AppRoutingModule } from "./app/app-routing.module";
 import { AppComponent } from "./app/app.component";
@@ -54,6 +55,7 @@ registerLocaleData(en);
             provide: TupleStorageFactoryService,
             useClass: TupleStorageFactoryServiceWeb,
         },
+        SqlFactoryService,
         VortexService,
         VortexStatusService,
         BalloonMsgService,
